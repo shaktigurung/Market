@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :condition %>
-    <%= form.number_field :condition %>
+    <%= form.select :condition, [["Unused", "unused"],["Used", "used"]]  %>
   </div>
 
   <div class="actions">

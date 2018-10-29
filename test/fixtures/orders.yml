@@ -1,11 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  stripe_charge_id: MyString
   address: one
   user: one
-  product: one
+  total_amount: 9.99
 
 two:
+  stripe_charge_id: MyString
   address: two
   user: two
-  product: two
+  total_amount: 9.99
+

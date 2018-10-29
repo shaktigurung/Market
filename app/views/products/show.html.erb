@@ -12,7 +12,11 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @product.image_url if @product.image? %>
+  <%# if @product.product_images.image? %>
+    <% @product.product_images.each do |image| %>
+      <%= image_tag image.image_url %>
+    <% end %>
+  <%# end %>
 </p>
 
 <p>

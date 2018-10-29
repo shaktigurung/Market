@@ -21,11 +21,12 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
+  <%= form.fields_for :product_image do |t| %>
+    <div>
+      <%= t.label :image %>
+      <%= t.file_field :image, :multiple => true %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :quantity %>
     <%= form.number_field :quantity %>

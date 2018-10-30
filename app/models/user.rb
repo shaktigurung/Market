@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   after_create_commit :add_customer_id
 
   def add_customer_id
@@ -15,4 +16,10 @@ class User < ApplicationRecord
       self.save
     end
   end
+
+
+  has_many :products
+  has_many :orders
+  has_many :comments, as: :commentable, dependent: :destroy
+
 end

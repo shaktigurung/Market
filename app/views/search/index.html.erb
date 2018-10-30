@@ -1,0 +1,16 @@
+<h1>Results</h1>
+<% @search.each do |result| %>
+  <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
+  <div>
+    <%=result.name%>
+  </div>
+<% end %>
+<%= form_for :search, url: search_index_path, method: :get do |f| %>
+  <div class="field">
+      <%= f.label :search %><br />
+      <%= f.text_field :search %>
+  </div>
+  <div>
+    <%= f.submit :search %>
+  </div>
+<% end %>

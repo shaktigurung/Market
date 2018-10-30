@@ -1,6 +1,6 @@
 <h1>Results</h1>
 <% @search.each do |result| %>
-  <%= image_tag result.product_images[0].image_url(:thumb) %>
+  <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
   <div>
     <%=result.name%>
   </div>

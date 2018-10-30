@@ -5,5 +5,7 @@
 <p><%= @user.email %></p>
 
 <% @user.products.each do |product| %>
+
   <%= link_to product.name, product_path(product.id) %>
+
 <% end %>

@@ -4,13 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.includes(:product_images, :comments).all
+    @products = Product.includes(:product_images, :comments)
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
-    @comments = @product.comments.all
+    @comments = @product.comments
     @comment = @product.comments.new(user_id: current_user.id)
   end
 

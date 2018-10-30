@@ -1,0 +1,10 @@
+<h1>Results</h1>
+<% @search.each do |result| %>
+  <%=result.name%>
+<% end %>
+<%= form_for(model: @search, method: :get) do |f| %>
+  <div class="field">
+      <%= f.label :search %><br />
+      <%= f.text_field :search %>
+  </div>
+<% end %>

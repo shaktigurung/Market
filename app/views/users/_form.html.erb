@@ -20,8 +20,8 @@
     <%= f.file_field :image %>
     <% if f.object.image? %>
       <%= image_tag f.object.image.thumb.url %>
-      <%= link_to "Remove Image", user_path(@user.id), method: :delete %>
     <% end %>
+    <%= link_to "Remove Image", user_path(@user.id), method: :delete %>
   </div>
 
   <div class="actions">

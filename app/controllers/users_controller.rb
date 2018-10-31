@@ -26,9 +26,11 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 # This method is currently doing nothing
 
     def destroy
-      if params[:image].present?
-        @user.image.remove_image!
+      if @user.image?
+        @user.remove_image!
+        redirect_to edit_user_path(@user.id)
       end
+      @user.save!
     end
 
     private
@@ -37,6 +39,6 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
       end
 
       def user_params
-        params.require(:user).permit(:first_name, :last_name, :description, :image)
+        params.require(:user).permit(:first_name, :last_name, :description, :image, :remove_image)
       end
 end

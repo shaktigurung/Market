@@ -34,7 +34,13 @@
   <%= @product.condition %>
 </p>
 
-<%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @comment, url_path: product_comments_path(@product.id) %>
+
+<%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %>
+<p>
+  <%= link_to "Buy",new_charge_path(product: @product.id) %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

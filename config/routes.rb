@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :product_images
     resources :comments
   end
+  resources :search, only: [:index]
   devise_for :users
   resources :users
   root "home#index"

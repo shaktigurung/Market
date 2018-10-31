@@ -4,14 +4,19 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.includes(:product_images, :comments)
   end
 
+  def buy
+    @product = Product.find(params[:id])
+    @product_price= @product[:price]
+  end
   # GET /products/1
   # GET /products/1.json
   def show
-    @comments = @product.comments.all
-    @comment = @product.comments.new(user_id: current_user.id)
+    @comments = @product.comments
+    #@comment = @product.comments.new(user_id: current_user.id)
+    @new_comment = Comment.new(user_id: current_user.id)
   end
 
   # GET /products/new
@@ -71,7 +76,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.includes(:product_images, :comments).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,3 +1,7 @@
+
+
+<%= @product.inspect%>
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -6,13 +10,14 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount To Pay: $<%= @product.price %></span>
     </label>
+    <input type="hidden" value="<%= @product.id %>" name="product_id">
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
           data-description="A month's subscription"
-          data-amount="500"
+          data-amount="<%= ((@product.price)*100) %>"
           data-locale="auto"></script>
 <% end %>

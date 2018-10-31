@@ -1,0 +1,13 @@
+<h1>Results</h1>
+<% @search.each do |result| %>
+  <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
+  <div>
+    <%=result.name%>
+  </div>
+<% end %>
+<%=link_to 'Next', search_index_path%>
+<% if @search.empty? %>
+  <div>
+    Nothing found matching that search
+  </div>
+<% end %>

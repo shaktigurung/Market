@@ -1,11 +1,24 @@
-<h1><%= full_name %></h1>
+<!-- I am able to call full_name because it is stated in the helper methods file -->
+<h1><%= full_name %></p>
 
-<%# you can add all of the user tables here %>
+<!-- This will take the uploaded image and display it -->
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.image.thumb.url %>
+</p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @user.description %>
+</p>
+
+<p><%= link_to 'Edit', edit_user_path(@user) %></p>
+
+<!-- This is just displaying the users email for now -->
 <p><%= @user.email %></p>
 
+
+<h4> Your Listed Items </h4>
 <% @user.products.each do |product| %>
-
-  <%= link_to product.name, product_path(product.id) %>
-
+  <%= link_to image_tag(product.product_images[0].image_url(:thumb)), product%>
 <% end %>

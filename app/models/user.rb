@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :products
   has_many :orders
   has_many :comments, as: :commentable, dependent: :destroy
+  mount_uploader :image, ImageUploader
 end

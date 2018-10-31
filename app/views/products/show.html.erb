@@ -37,7 +37,7 @@
 
 <%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %>
 <p>
-  <%= link_to "Buy ",new_charge_url(@product)%>
+  <%= link_to "Buy",new_charge_path(product: @product.id) %>
 </p>
 
 

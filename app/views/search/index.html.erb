@@ -5,12 +5,9 @@
     <%=result.name%>
   </div>
 <% end %>
-<%= form_for :search, url: search_index_path, method: :get do |f| %>
-  <div class="field">
-      <%= f.label :search %><br />
-      <%= f.text_field :search %>
-  </div>
+<%=link_to 'Next', search_index_path%>
+<% if @search.empty? %>
   <div>
-    <%= f.submit :search %>
+    Nothing found matching that search
   </div>
 <% end %>

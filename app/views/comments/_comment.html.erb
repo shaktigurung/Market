@@ -1,13 +1,15 @@
 <div>
   <h2>Comments</h2>
-  <% comments.each do |com| %>
-    <div>
-      <%= com.content %>
-    </div>
-    <div>
-      By <%= com.user.first_name + " " + com.user.last_name %> created at: <%= com.created_at %>
-    </div>
-  <% end %>
+    <% comments.each do |com|%>
+      <div>
+        <%= com.content %>
+      </div>
+      <div>
+        By <%= com.user.first_name + " " + com.user.last_name %> created at: <%= com.created_at %>
+        <%= link_to 'Destroy', user_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "User" %>
+        <%= link_to 'Destroy', product_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "Product" %>
+      </div>
+    <% end %>
   <div>
     <%= form_with(model: comment, url: url_path, local: true) do |form| %>
       <div class='field'>

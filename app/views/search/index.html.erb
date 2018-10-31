@@ -5,7 +5,27 @@
     <%=result.name%>
   </div>
 <% end %>
-<%=link_to 'Next', search_index_path%>
+<% if params[:page].to_i > 0%>
+  <%= form_with url: search_index_path, method: :get, local: true do |f| %>
+    <%= f.hidden_field :search, value: params[:search] %>
+    <%= f.hidden_field :page, value: params[:page].to_i - 1  %>
+    <%= f.submit :prev %>
+  <% end %>
+<% end %>
+<% i = 0%>
+<% while i < (@length / @limit) %>
+  <%= form_with url: search_index_path, method: :get, local: true do |f| %>
+    <%= f.hidden_field :search, value: params[:search] %>
+    <%= f.hidden_field :page, value: i+1%>
+    <%= f.submit "#{i+1}" %>
+  <% end %>
+  <% i += 1 %>
+<% end %>
+<%= form_with url: search_index_path, method: :get, local: true do |f| %>
+  <%= f.hidden_field :search, value: params[:search] %>
+  <%= f.hidden_field :page, value: params[:page].to_i + 1 %>
+  <%= f.submit :next %>
+<% end %>
 <% if @search.empty? %>
   <div>
     Nothing found matching that search

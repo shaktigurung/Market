@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
     @products = Product.includes(:product_images, :comments).all
   end
 
+  def buy
+    @product = Product.find(params[:id])
+    @product_price= @product[:price]
+  end
   # GET /products/1
   # GET /products/1.json
   def show

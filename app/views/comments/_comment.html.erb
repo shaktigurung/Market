@@ -10,17 +10,19 @@
         <%= link_to 'Destroy', product_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "Product" %>
       </div>
     <% end %>
-  <div>
-    <%= form_with(model: comment, url: url_path, local: true) do |form| %>
-      <div class='field'>
-        <%# form.hidden_field :parent_id, value: comment.parent_id? ? comment.id : nil %>
-        <%= form.label :content %>
-        <%= form.text_area :content %>
-      </div>
+  <% if user_signed_in?%>
+    <div>
+      <%= form_with(model: comment, url: url_path, local: true) do |form| %>
+        <div class='field'>
+          <%# form.hidden_field :parent_id, value: comment.parent_id? ? comment.id : nil %>
+          <%= form.label :content %>
+          <%= form.text_area :content %>
+        </div>
 
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-    <% end%>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end%>
+    </div>
   </div>
-</div>
+<% end %>

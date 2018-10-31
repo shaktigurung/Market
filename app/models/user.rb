@@ -12,7 +12,7 @@ class User < ApplicationRecord
         :email => self.email
         # :source  => params[:stripeToken]
       )
-      self.customer_id = customer.id 
+      self.customer_id = customer.id
       self.save
     end
   end

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   # GET /products
   # GET /products.json
   def index
@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def show
     @comments = @product.comments
     #@comment = @product.comments.new(user_id: current_user.id)
-    @new_comment = Comment.new(user_id: current_user.id)
+    @new_comment = Comment.new
   end
 
   # GET /products/new
@@ -27,6 +27,11 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    respond_to do |format|
+      if current_user.id != @product.user.id
+        format.html {redirect_to @product, notice: "You cannot edit this item!!!"}
+      end
+    end
   end
 
   # POST /products

@@ -21,24 +21,24 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-     @product = current_user.products.build
-    #  @product = Product.new
+    #  @product = current_user.products.build
+     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
-    respond_to do |format|
-      if current_user.id != @product.user.id
-        format.html {redirect_to @product, notice: "You cannot edit this item!!!"}
-      end
-    end
+    # respond_to do |format|
+    #   if current_user.id != @product.user.id
+    #     format.html {redirect_to @product, notice: "You cannot edit this item!!!"}
+    #   end
+    # end
   end
 
   # POST /products
   # POST /products.json
   def create
-    @product = current_user.products.build(product_params)
-    # @product = Product.new(product_params)
+    # @product = current_user.products.build(product_params)
+    @product = Product.new(product_params)
     @product.user_id = current_user.id
     respond_to do |format|
       if @product.save
@@ -86,6 +86,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :quantity, :price, :condition, product_image_attributes: :image)
+      params.require(:product).permit(:name, :description, :quantity, :price, :condition, :category, product_image_attributes: :image)
     end
 end

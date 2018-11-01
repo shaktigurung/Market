@@ -1,4 +1,5 @@
 <h1>Results</h1>
+<%# Print search results%>
 <% @search.each do |result| %>
   <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
   <div>
@@ -20,10 +21,10 @@
     <% end %>
   </span>
     <%# Direct to page links %>
-  <span class="inline">
-    <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
-      <% i = 0 %>
-      <% while i < (@length / @limit) %>
+  <span class="inline"> 
+    <% i = 0 %>
+    <% while i < (@length / @limit) %>
+      <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
         <span class="inline">
           <%= f.hidden_field :search, value: params[:search] %>
           <%= f.hidden_field :page, value: i+1%>
@@ -43,7 +44,7 @@
       </span>
     <% end %>
 <% end %>
-
+<%# If search field comes up empty%>
 <% if @search.empty? %>
   <div>
     Nothing found matching that search

@@ -23,6 +23,8 @@
     <p class="navbar-text pull-left">
       <%= form_with url: search_index_path, method: :get, local: true do |f| %>
           <%= f.text_field :search %>
+          <%= f.select :category, [["All","*"], ["T'Shirt", "TShirt"],["Jumper", "Jumper"], 
+          ["Pants", "Pants"], ["Underwear", "Underwear"], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
           <%= f.submit :search %>
       <% end %>
     </p>

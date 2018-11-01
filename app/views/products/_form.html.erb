@@ -38,8 +38,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, [["T'Shirt", "TShirt"],["Jumper", "Jumper"], ["Pants", "Pants"], ['Underwear', 'Underwear'], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
+  </div>
+  
+  <div class="field">
     <%= form.label :condition %>
-    <%= form.select :condition, [["Unused", "unused"],["Used", "used"]]  %>
+    <%= form.select :condition, [["Unused", "Unused"],["Used", "Used"]]  %>
   </div>
 
   <div class="actions">

@@ -9,11 +9,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      if current_user.id != @user.id
-        format.html {redirect_to @product, notice: "You cannot edit this item!!!"}
-      end
-    end
+    # respond_to do |format|
+    #   if current_user.id != @user.id
+    #     format.html {redirect_to @user, notice: "You cannot edit this item!!!"}
+    #   end
+    # end
   end
 
     def update

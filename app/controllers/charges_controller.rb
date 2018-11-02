@@ -24,13 +24,21 @@ class ChargesController < ApplicationController
         :customer    => current_user.customer_id,
         :amount      => (@product.price*100).to_i ,
         :description => 'Rails Stripe customer',
-        :currency    => 'aud',
-        
+        :currency    => 'aud'
+        # :email       =>  current_user.email 
       )
+      
+      @order = Order.create(
+        user_id: current_user.id,
+        total_amount: @product.price,
+        stripe_charge_id: rand(9999),
+        product_id: @product.id
+        )
+      @order.save(validate: false)
     
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_charge_path
+      redirect_to search_index_path
     end
 
     # private

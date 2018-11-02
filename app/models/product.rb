@@ -5,6 +5,6 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
 
   belongs_to :user
-  has_many :orderdetails
+  has_many :orders
   has_many :comments, as: :commentable, dependent: :destroy
 end

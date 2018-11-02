@@ -17,11 +17,20 @@
   <%= @user.description %>
 </p>
 
-<!-- This is just displaying the users email for now -->
-<p><%= @user.email %></p>
-
-
-<h4> Your Listed Items </h4>
+<h4> Your Listed Items: </h4>
 <% @user.products.each do |product| %>
   <%= link_to image_tag(product.product_images[0].image_url(:thumb)), product%>
 <% end %>
+
+<% if @user.id == current_user.id%>
+  <h4>Order History:</h4>
+  <% @user.orders.each do |order| %>
+    <%= order.product.name %>
+    <%= order.product.created_at %>
+  <% end %>
+<% end %>
+
+<p><%= link_to 'Edit', edit_user_path(@user) %></p>
+
+<!-- This is just displaying the users email for now -->
+<p><%= @user.email %></p>

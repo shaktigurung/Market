@@ -14,10 +14,11 @@
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
-          data-description="A month's subscription"
-          data-label="Buy now"
-          data-amount="<%= ((@product.price)*100) %>"
-          data-locale="auto"></script>
+                                data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
+                                data-description="Product Price"
+                                data-label="Buy now"
+                                data-email="<%= current_user.email %>"
+                                data-amount="<%= ((@product.price)*100) %>"
+                                data-locale="auto"></script>
 <% end %> 
 

@@ -34,10 +34,32 @@
   <%= @product.condition %>
 </p>
 
+ <%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %> 
 
-<%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %>
+ <%= form_tag charges_path do %>
+                        <article>
+                            <% if flash[:error].present? %>
+                            <div id="error_explanation">
+                                <p><%= flash[:error] %></p>
+                            </div>
+                            <% end %><br>
+                            <label class="amount">
+                            <span> Price: $<%= (@product.price).to_i %></span>
+                            </label>
+                            <input type="hidden" value="<%= @product.id %>" name="product_id">
+                        </article>
+
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                        data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
+                                                        data-description="Product Price"
+                                                        data-label="Buy now"
+                                                        data-email="<%= current_user.email %>"
+                                                        data-amount="<%= ((@product.price)*100) %>"
+                                                        data-locale="auto"></script>
+                     
+      <%end%>
 <p>
-  <%= link_to "Buy",new_charge_path(product: @product.id) %>
+  <%#= link_to "Buy",new_charge_path(product: @product.id) %>
 </p>
 
 

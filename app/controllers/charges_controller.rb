@@ -14,8 +14,8 @@ class ChargesController < ApplicationController
       # @product = Product.find(params[:format])
       # render json: @product.price
       # @amount = @product.price 
-      @product = Product.find(params[:product_id])
-    
+       @product = Product.find(params[:product_id])
+
       customer = Stripe::Customer.retrieve(current_user.customer_id)
       customer.source = params[:stripeToken]
       customer.save

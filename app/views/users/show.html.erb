@@ -8,12 +8,14 @@
 </p>
 
 <p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @user.description %>
 </p>
-
-
-
 
 <h4> Your Listed Items: </h4>
 <% @user.products.each do |product| %>

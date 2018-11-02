@@ -28,9 +28,14 @@ class ChargesController < ApplicationController
         # :email       =>  current_user.email 
       )
       
-      @order = Order.create(user_id: current_user.id, total_amount: @product.price, stripe_charge_id: charge)
-      # byebug
+      @order = Order.create(
+        user_id: current_user.id,
+        total_amount: @product.price,
+        stripe_charge_id: rand(9999),
+        product_id: @product.id
+        )
       @order.save(validate: false)
+    
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to search_index_path

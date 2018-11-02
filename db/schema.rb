@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_235854) do
+ActiveRecord::Schema.define(version: 2018_11_02_003522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2018_11_01_235854) do
     t.decimal "total_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -100,6 +102,7 @@ ActiveRecord::Schema.define(version: 2018_11_01_235854) do
   add_foreign_key "comments", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
+  add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"

@@ -32,7 +32,8 @@ class ChargesController < ApplicationController
         user_id: current_user.id,
         total_amount: @product.price,
         stripe_charge_id: rand(9999),
-        product_id: @product.id
+        product_id: @product.id,
+        address_id: current_user.address_ids[0]
         )
       @order.save(validate: false)
     

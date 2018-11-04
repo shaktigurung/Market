@@ -7,8 +7,10 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :search, only: [:index]
-  devise_for :users
-  resources :users
+  devise_for :users do
+    resources :addresses
+  end
+  resources :users 
   resources :orders
   root "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

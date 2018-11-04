@@ -1,7 +1,13 @@
 <h2>Sign up</h2>
 
+<% resource.addresses.build %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
 
   <div class="field">
     <%= f.label :first_name %><br />
@@ -30,6 +36,29 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+  <%= f.fields_for :addresses do |t| %>
+    <div>
+      <%= t.label "Street Number"%>
+      <%= t.text_field :home_number %>
+    </div>
+    <div>
+      <%= t.label "Street Name"%>
+      <%= t.text_field :street_name %>
+    </div>
+    <div>
+      <%= t.label "City"%>
+      <%= t.text_field :suburb %>
+    </div>
+    <div>
+      <%= t.label "Country"%>
+      <%= t.text_field :country %>
+    </div>
+    <div>
+      <%= t.label "Postcode"%>
+      <%= t.text_field :postcode %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

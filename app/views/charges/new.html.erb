@@ -1,5 +1,5 @@
 
-
+<%= render 'products/thumb', result: @product %>
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>

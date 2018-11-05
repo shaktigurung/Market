@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @comments = @product.comments
-    #@comment = @product.comments.new(user_id: current_user.id)
     @new_comment = Comment.new
   end
 
@@ -42,8 +41,10 @@ class ProductsController < ApplicationController
     @product.user_id = current_user.id
     respond_to do |format|
       if @product.save
-        params[:product][:product_image][:image].each do |img|
-          @product_image = @product.product_images.create(:image => img)
+        unless params[:product][:product_image].nil?
+          params[:product][:product_image][:image].each do |img|
+            @product_image = @product.product_images.create(:image => img)
+          end
         end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }

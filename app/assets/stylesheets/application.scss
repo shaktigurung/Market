@@ -14,24 +14,39 @@
  *= require_self
  *= require bootstrap.min
  */
- @font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url('/assets/fonts/glyphicons-halflings-regular.eot');
-    src: url('/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
-       url('/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-       url('/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
- }
-
- .banner h1 {
-       color:grey;
-       text-align: center;
- }
  
- .inline {
-   display: inline;
- }
+//Color
+$primary_color:#D7562C; 
+$secondary_color: #EFB33F;
+$tertiary_color:#373F5A;
+$fourth_color:#92C8D2;
+$fifth_color:#F5F9F8;
 
- .red {
-   color:red;
- }
+//Bootstrap font-face
+@font-face {
+      font-family: 'Glyphicons Halflings';
+      src: url('/assets/fonts/glyphicons-halflings-regular.eot');
+      src: url('/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
+         url('/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+         url('/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+   }
+//Fonts
+//@import url('https://fonts.googleapis.com/css?family=Monoton|Muli|Source+Serif+Pro');
+/*font-family: 'Source Serif Pro', serif;
+font-family: 'Monoton', cursive;
+font-family: 'Muli', sans-serif;*/
+
+
+.banner {
+      h1{
+            font-family: 'Monoton', cursive;
+            text-align: center;  
+      }
+      p{
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.5rem;
+            text-align: justify;
+      }
+}
+

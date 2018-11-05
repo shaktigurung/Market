@@ -1,14 +1,7 @@
 <h1>Results</h1>
 <%# Print search results%>
 <% @search.reverse.each do |result| %>
-  <% unless result.product_images.empty? %>
-    <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
-  <% else%>
-    <%= image_tag ActionController::Base.helpers.asset_path("default.jpg") %>
-  <% end %>
-  <div>
-    <%=result.name%>
-  </div>
+  <%= render 'products/thumb', result: result %>
 <% end %>
 
 <% if @length > @limit %>

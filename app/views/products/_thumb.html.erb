@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <% unless result.product_images.empty? %>
+      <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
+    <% else%>
+      <%= image_tag ActionController::Base.helpers.asset_path("default.jpg") %>
+    <% end %>
+  </div>
+  <div>
+    <%=result.name%>
+  </div>
+  <div>
+    Quantity:
+    <% if result.quantity > 0 %>
+      <%= result.quantity %>
+    <% else%>
+      <span class="red">OUT OF STOCK</span>
+    <% end %>
+  </div>
+</div>

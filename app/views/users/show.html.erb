@@ -22,23 +22,23 @@
 <h4> Your Listed Items: </h4>
 <% unless @user.products.empty?%>
   <% @user.products.reverse.each do |product| %>
-    <% unless product.product_images.empty? %>
-      <%= link_to image_tag(product.product_images[0].image_url(:thumb)), product%>
-    <% end %>
+    <%= render 'products/thumb', result: product %>
   <% end %>
 <% end %>
 <% if @user.id == current_user.id%>
   <h4>Order History:</h4>
   <% @user.orders.reverse.each do |order| %>
-    <%= order.product.name %>
-    $<%= order.product.price %>
-    <%= order.address.home_number %>
-    <%= order.address.street_name %>
-    <%= order.address.suburb %>
-    <%= order.address.country %>,
-    <%= order.address.postcode %>
-    <%= order.product.created_at %>
-    <%= link_to "#{order.product.user.user_name}", user_path(order.product.user.id) %>
+    <div>
+      <%= order.product.name %>
+      $<%= order.product.price %>
+      <%= order.address.home_number %>
+      <%= order.address.street_name %>
+      <%= order.address.suburb %>
+      <%= order.address.country %>,
+      <%= order.address.postcode %>
+      <%= order.product.created_at %>
+      <%= link_to "#{order.product.user.user_name}", user_path(order.product.user.id) %>
+    </div>
   <% end %>
 <% end %>
 

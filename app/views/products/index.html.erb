@@ -16,7 +16,7 @@
   <tbody>
     <% @products.reverse.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <td><%= product.name.titleize %></td>
         <td><%= product.description %></td>
         <% unless product.product_images.empty? %>
           <td><%= image_tag product.product_images[0].image_url(:thumb)%></td>

@@ -1,6 +1,6 @@
 <p>
   <strong>Name:</strong>
-  <%= @product.name %>
+  <%= @product.name.titleize %>
 </p>
 
 <p>
@@ -23,7 +23,11 @@
 
 <p>
   <strong>Quantity:</strong>
-  <%= @product.quantity %>
+  <% if @product.quantity > 0 %>
+    <%= @product.quantity %>
+  <% else %>
+    <span class='red'>OUT OF STOCK</span>
+  <% end %>
 </p>
 
 <p>
@@ -42,7 +46,7 @@
 </p>
 
  <%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %> 
-
+<% if @product.quantity > 0 %>
  <%= form_tag charges_path do %>
                         <article>
                             <% if flash[:error].present? %>
@@ -65,6 +69,7 @@
                                                         data-locale="auto"></script>
                      
       <%end%>
+<%end%>
 <p>
   <%#= link_to "Buy",new_charge_path(product: @product.id) %>
 </p>

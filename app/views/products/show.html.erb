@@ -54,7 +54,7 @@
 
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                                         data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
-                                                        data-description="Product Price"
+                                                        data-description=" What a buy !!! <%= current_user.first_name %>"
                                                         data-label="Buy now"
                                                         data-email="<%= current_user.email %>"
                                                         data-amount="<%= ((@product.price)*100) %>"

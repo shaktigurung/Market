@@ -33,12 +33,14 @@
   </span>
     <%# Next search page if available %>
   <span class="inline">
-    <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
-      <span class="inline">
-        <%= f.hidden_field :search, value: params[:search] %>
-        <%= f.hidden_field :page, value: params[:page].to_i + 1 %>
-        <%= f.submit :next %>
-      </span>
+    <% if params[:page].to_i < (@length / @limit)%>
+      <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
+        <span class="inline">
+          <%= f.hidden_field :search, value: params[:search] %>
+          <%= f.hidden_field :page, value: params[:page].to_i + 1 %>
+          <%= f.submit :next %>
+        </span>
+      <% end %>
     <% end %>
 <% end %>
 <%# If search field comes up empty%>

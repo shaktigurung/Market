@@ -1,0 +1,11 @@
+<div>
+  <%= order.product.name %>
+  $<%= order.product.price %>
+  <%= order.address.home_number %>
+  <%= order.address.street_name %>
+  <%= order.address.suburb %>
+  <%= order.address.country %>,
+  <%= order.address.postcode %>
+  <%= order.product.created_at %>
+  <%= link_to "#{order.product.user.user_name}", user_path(order.product.user.id) %>
+</div>

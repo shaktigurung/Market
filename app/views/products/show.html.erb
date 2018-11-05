@@ -7,6 +7,10 @@
   <strong>Description:</strong>
   <%= @product.description %>
 </p>
+<p>
+  <strong>Seller:</strong>
+  <%= link_to "#{@product.user.user_name}", user_path(@product.user.id)%>
+</p>
 
 <p>
   <strong>Image:</strong>

@@ -5,7 +5,7 @@
         <%= com.content %>
       </div>
       <div>
-        By <%= com.user.first_name + " " + com.user.last_name %> created at: <%= com.created_at %>
+        By <%= link_to com.user.user_name, user_path(com.user.id) %> created at: <%= com.created_at %>
         <%= link_to 'Destroy', user_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "User" %>
         <%= link_to 'Destroy', product_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "Product" %>
       </div>

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
   def show
+    @comments = @user.comments
+    @new_comment = Comment.new
   end
 
   def index

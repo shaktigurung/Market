@@ -14,11 +14,15 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <% @products.reverse.each do |product| %>
       <tr>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= image_tag product.product_images[0].image_url(:thumb)%></td> <%#TODO: Optional iamges%>
+        <% unless product.product_images.empty? %>
+          <td><%= image_tag product.product_images[0].image_url(:thumb)%></td>
+          <% else %>
+          <td><%= image_tag ActionController::Base.helpers.asset_path("default.jpg") %></td>
+        <% end  %> <%#TODO: Optional iamges%>
         <td><%= product.quantity %></td>
         <td>$<%= product.price %></td>
         <td><%= product.condition %></td>

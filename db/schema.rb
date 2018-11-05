@@ -77,12 +77,11 @@ ActiveRecord::Schema.define(version: 2018_11_04_232749) do
     t.integer "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.integer "category"
     t.index ["category"], name: "index_products_on_category"
     t.index ["description"], name: "index_products_on_description"
     t.index ["name"], name: "index_products_on_name"
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,7 +95,6 @@ ActiveRecord::Schema.define(version: 2018_11_04_232749) do
     t.string "first_name"
     t.string "last_name"
     t.string "stripe_customer_id"
-    t.string "customer_id"
     t.text "image"
     t.text "description"
     t.string "user_name"
@@ -112,5 +110,4 @@ ActiveRecord::Schema.define(version: 2018_11_04_232749) do
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
-  add_foreign_key "products", "users"
 end

@@ -14,6 +14,8 @@
 
 The idea behind **APP NAME HERE** is for people to be able to buy and sell items between each other. 
 
+We worked as a team during the intial stages of the project. We had meetings during the morning to talk about what we have done and what is to be completed. Blockers that came up were worked through with memeber of the team. If we were really stuck we would then go to Garret/James for addition help.
+
 ### Teach Stack
 
 - HTML 5

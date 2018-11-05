@@ -75,3 +75,4 @@ gem "carrierwave-aws", "~> 1.3"
 gem "stripe", "~> 3.28"
 
 gem "textacular", "~> 5.1"
+gem "font-awesome-rails"

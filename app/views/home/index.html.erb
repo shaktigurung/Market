@@ -8,7 +8,7 @@
             <div class="col-md-12">
                     <% @products.reverse.each do |product| %>
                     <div class="col-md-3">                                
-                          <%= render 'products/thumb', result: product %>
+                        <%= render 'products/thumb', result: product %>
                         <% if user_signed_in? && current_user.id %> 
                             <%= form_tag charges_path do %>
                                 <article>
@@ -26,7 +26,7 @@
                                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                                             data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
                                                             data-description=" What a buy !!! <%= current_user.first_name %>"
-                                                            data-label="Buy now"
+                                                            data-label= "Buy now"
                                                             data-email="<%= current_user.email %>"
                                                             data-amount="<%= ((product.price)*100) %>"
                                                             data-locale="auto">
@@ -39,8 +39,7 @@
                         <%= link_to 'Show', product %><br>
                          <%#= link_to 'Show', product %><br>
                         <%#= button_to "Buy ",new_charge_path(product: product.id), method: :get, class: "btn-primary" %>
-                        <%#= link_to 'Buy', show_charge_path, class: "btn-primary" %><br>
-                       
+                        <%#= link_to 'Buy', show_charge_path, class: "btn-primary" %><br> 
                     </div>
                     <% end %>
             </div>

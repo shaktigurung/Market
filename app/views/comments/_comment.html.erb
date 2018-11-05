@@ -1,22 +1,27 @@
 <div>
   <h2>Comments</h2>
+<%#  List all existing comments %>
     <% comments.each do |com|%>
       <div>
         <%= com.content %>
       </div>
       <div>
+<%#  Link to comment author %>
         By <%= link_to com.user.user_name, user_path(com.user.id) %> created at: <%= com.created_at %>
+<%# Only display destroy link if current user created %>
         <% if com.user.id == current_user.id %>
           <%= link_to 'Destroy', user_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "User" %>
           <%= link_to 'Destroy', product_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "Product" %>
         <% end %>
       </div>
     <% end %>
+<%#  Create comment form %>
   <% if user_signed_in?%>
     <div>
       <%= form_with(model: comment, url: url_path, local: true) do |form| %>
         <div class='field'>
-          <%# form.hidden_field :parent_id, value: comment.parent_id? ? comment.id : nil %>
+<%#  For comments on comments if added in future %>
+          <%# form.hidden_field :parent_id, value: comment.parent_id? ? comment.id : nil %> 
           <%= form.label :content %>
           <%= form.text_area :content %>
         </div>

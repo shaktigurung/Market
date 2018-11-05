@@ -3,7 +3,7 @@
     <% unless result.product_images.empty? %>
       <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
     <% else%>
-      <%= image_tag ActionController::Base.helpers.asset_path("default.jpg") %>
+      <%= link_to image_tag(ActionController::Base.helpers.asset_path("default.jpg")), result %>
     <% end %>
   </div>
   <div>

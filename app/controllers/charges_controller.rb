@@ -27,7 +27,7 @@ class ChargesController < ApplicationController
         :currency    => 'aud'
         # :email       =>  current_user.email 
       )
-      
+# Create tracking order
       @order = Order.create(
         user_id: current_user.id,
         total_amount: @product.price,
@@ -36,7 +36,7 @@ class ChargesController < ApplicationController
         address_id: current_user.address_ids[0]
         )
       @order.save(validate: false)
-
+# Increment product quantity
       @product.quantity =- 1
       @product.save
     

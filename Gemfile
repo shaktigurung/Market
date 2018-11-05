@@ -75,3 +75,5 @@ gem "carrierwave-aws", "~> 1.3"
 gem "stripe", "~> 3.28"
 
 gem "textacular", "~> 5.1"
+
+gem "faker", "~> 1.9"

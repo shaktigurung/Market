@@ -6,42 +6,53 @@
 <div class= "container">
     <div class = "row">
             <div class="col-md-12">
-                    <% @products.reverse.each do |product| %>
-                    <div class="col-md-3">                                
-                          <%= render 'products/thumb', result: product %>
-                        <% if user_signed_in? && current_user.id %> 
-                            <%= form_tag charges_path do %>
-                                <article>
-                                    <% if flash[:error].present? %>
-                                    <div id="error_explanation">
-                                        <p><%= flash[:error] %></p>
-                                    </div>
-                                    <% end %><br>
-                                    <label class="amount">
-                                    <span> Price: $<%= (product.price).to_i %></span>
-                                    </label>
-                                    <input type="hidden" value="<%= product.id %>" name="product_id">
-                                </article>
-
-                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                            data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
-                                                            data-description=" What a buy !!! <%= current_user.first_name %>"
-                                                            data-label="Buy now"
-                                                            data-email="<%= current_user.email %>"
-                                                            data-amount="<%= ((product.price)*100) %>"
-                                                            data-locale="auto">
-                                </script>
-                            <% end %> 
-                            <% else %>
-                            <%= link_to 'Show', product %><br>
-                            <%= link_to 'Buy', root_path %><br>
-                        <% end %>
-                        <%= link_to 'Show', product %><br>
-                         <%#= link_to 'Show', product %><br>
-                        <%#= button_to "Buy ",new_charge_path(product: product.id), method: :get, class: "btn-primary" %>
-                        <%#= link_to 'Buy', show_charge_path, class: "btn-primary" %><br>
-                       
+            <h3>Popular Items</h3>
+                    <% @popular[0..3].each do |product|%>
+                    <div class="col-md-3">
+                      <%= render 'products/thumb', product: product %>
                     </div>
+                    <% end %>
+                    
+                    <h3>Shirts</h3>
+                    <% @shirts[0..3].each do |product|%>
+                      <div class="col-md-3">
+                        <%= render 'products/thumb', product: product %>
+                      </div>
+                    <% end %>
+
+                    <h3>Jumpers</h3>
+                    <% @jumpers[0..3].each do |product|%>
+                      <div class="col-md-3">
+                        <%= render 'products/thumb', product: product %>
+                      </div>
+                    <% end %>
+
+                    <h3>Pants</h3>
+                    <% @pants[0..3].each do |product|%>
+                      <div class="col-md-3">
+                        <%= render 'products/thumb', product: product %>
+                      </div>
+                    <% end %>
+
+                    <h3>Underwear</h3>
+                    <% @underwear[0..3].each do |product|%>
+                      <div class="col-md-3">
+                        <%= render 'products/thumb', product: product %>
+                      </div>
+                    <% end %>
+
+                    <h3>Collectables</h3>
+                    <% @collectables[0..3].each do |product|%>
+                      <div class="col-md-3">
+                        <%= render 'products/thumb', product: product %>
+                      </div>
+                    <% end %>
+
+                    <h3>Gadgets</h3>
+                    <% @gadgets[0..3].each do |product|%>
+                      <div class="col-md-3">
+                        <%= render 'products/thumb', product: product %>
+                      </div>
                     <% end %>
             </div>
     </div>

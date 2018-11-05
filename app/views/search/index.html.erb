@@ -1,7 +1,7 @@
 <h1>Results</h1>
 <%# Print search results%>
 <% @search.reverse.each do |result| %>
-  <%= render 'products/thumb', result: result %>
+  <%= render 'products/thumb', product: result %>
 <% end %>
 
 <% if @length > @limit %>

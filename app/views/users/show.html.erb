@@ -26,7 +26,7 @@
 <h4> Your Listed Items: </h4>
 <% unless @user.products.empty?%>
   <% @user.products.reverse.each do |product| %>
-    <%= render 'products/thumb', result: product %>
+    <%= render 'products/thumb', product: product %>
   <% end %>
 <% end %>
 <% if @user.id == current_user.id%>

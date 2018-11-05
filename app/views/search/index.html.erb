@@ -1,10 +1,7 @@
 <h1>Results</h1>
 <%# Print search results%>
-<% @search.each do |result| %>
-  <%= link_to image_tag(result.product_images[0].image_url(:thumb)), result %>
-  <div>
-    <%=result.name%>
-  </div>
+<% @search.reverse.each do |result| %>
+  <%= render 'products/thumb', result: result %>
 <% end %>
 
 <% if @length > @limit %>

@@ -4,12 +4,14 @@
 <!-- This will take the uploaded image and display it -->
 <p>
   <strong>Image:</strong>
-  <%= image_tag @user.image.thumb.url %>
+  <% unless @user.image.nil? %>
+    <%= image_tag @user.image.thumb.url %>
+  <% end %>
 </p>
 
 <p>
   <strong>Username:</strong>
-  <%= @user.username %>
+  <%= @user.user_name %>
 </p>
 
 <p>
@@ -18,24 +20,30 @@
 </p>
 
 <h4> Your Listed Items: </h4>
-<% @user.products.each do |product| %>
-  <%= link_to image_tag(product.product_images[0].image_url(:thumb)), product%>
+<% unless @user.products.empty?%>
+  <% @user.products.reverse.each do |product| %>
+    <%= render 'products/thumb', result: product %>
+  <% end %>
 <% end %>
-
 <% if @user.id == current_user.id%>
   <h4>Order History:</h4>
-  <% @user.orders.each do |order| %>
-    <%= order.product.name %>
-    <%= order.address.home_number %>
-    <%= order.address.street_name %>
-    <%= order.address.suburb %>
-    <%= order.address.country %>,
-    <%= order.address.postcode %>
-    <%= order.product.created_at %>
+  <% @user.orders.reverse.each do |order| %>
+    <div>
+      <%= order.product.name %>
+      $<%= order.product.price %>
+      <%= order.address.home_number %>
+      <%= order.address.street_name %>
+      <%= order.address.suburb %>
+      <%= order.address.country %>,
+      <%= order.address.postcode %>
+      <%= order.product.created_at %>
+      <%= link_to "#{order.product.user.user_name}", user_path(order.product.user.id) %>
+    </div>
   <% end %>
 <% end %>
 
-<p><%= link_to 'Edit', edit_user_path(@user) %></p>
+<p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
 
 <!-- This is just displaying the users email for now -->
 <p><%= @user.email %></p>
+<%= render 'comments/comment', comment_path: @user.id, comments: @comments, comment: @new_comment, url_path: user_comments_path(@user.id) %>

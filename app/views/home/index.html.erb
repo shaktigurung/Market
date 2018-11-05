@@ -6,9 +6,9 @@
 <div class= "container">
     <div class = "row">
             <div class="col-md-12">
-                    <% @products.each do |product| %>
-                    <div class="col-md-4">
-                        <%= image_tag product.product_images[0].image_url(:thumb)%><br>
+                    <% @products.reverse.each do |product| %>
+                    <div class="col-md-4">                                
+                          <%= render 'products/thumb', result: product %>
                         <% if user_signed_in? && current_user.id %> 
                             <%= form_tag charges_path do %>
                                 <article>

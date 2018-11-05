@@ -36,6 +36,9 @@ class ChargesController < ApplicationController
         address_id: current_user.address_ids[0]
         )
       @order.save(validate: false)
+
+      @product.quantity =- 1
+      @product.save
     
     rescue Stripe::CardError => e
       flash[:error] = e.message

@@ -75,4 +75,11 @@ gem "carrierwave-aws", "~> 1.3"
 gem "stripe", "~> 3.28"
 
 gem "textacular", "~> 5.1"
+
 gem "font-awesome-rails"
+
+
+gem "faker", "~> 1.9"
+
+gem "simple_form", "~> 4.0"
+

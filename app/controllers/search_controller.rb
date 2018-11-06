@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @limit = 2
+    @limit = 10
     @page = params[:page].to_i
     @page ||= 0
     @category = params['category']

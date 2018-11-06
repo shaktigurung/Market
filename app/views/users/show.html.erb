@@ -1,44 +1,38 @@
 <!-- I am able to call full_name because it is stated in the helper methods file -->
-<h1><%= full_name %></p>
+<h1><%= @user.user_name %></h1>
 
 <!-- This will take the uploaded image and display it -->
 <p>
   <strong>Image:</strong>
   <% unless @user.image.nil? %>
-    <%= image_tag @user.image.thumb.url %>
+    <div>
+      <%= image_tag @user.image.thumb.url %>
+    </div>
   <% end %>
 </p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @user.user_name %>
+  <strong>Full Name:</strong>
+  <%= full_name %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @user.description %>
+  <div>
+    <%= @user.description %>
+  </div>
 </p>
 
 <h4> Your Listed Items: </h4>
 <% unless @user.products.empty?%>
   <% @user.products.reverse.each do |product| %>
-    <%= render 'products/thumb', result: product %>
+    <%= render 'products/thumb', product: product %>
   <% end %>
 <% end %>
 <% if @user.id == current_user.id%>
   <h4>Order History:</h4>
   <% @user.orders.reverse.each do |order| %>
-    <div>
-      <%= order.product.name %>
-      $<%= order.product.price %>
-      <%= order.address.home_number %>
-      <%= order.address.street_name %>
-      <%= order.address.suburb %>
-      <%= order.address.country %>,
-      <%= order.address.postcode %>
-      <%= order.product.created_at %>
-      <%= link_to "#{order.product.user.user_name}", user_path(order.product.user.id) %>
-    </div>
+    <%= render "orders/orders", order: order %>
   <% end %>
 <% end %>
 

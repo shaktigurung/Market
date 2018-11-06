@@ -17,14 +17,14 @@
       <span class="red">OUT OF STOCK</span>
     <% end %>
   </div>
-  <% if user_signed_in? && current_user.id %> 
+  <% if user_signed_in? && current_user.id && current_user.id != product.user.id %> 
     <%= form_tag charges_path do %>
         <article>
             <% if flash[:error].present? %>
             <div id="error_explanation">
                 <p><%= flash[:error] %></p>
             </div>
-            <% end %><br>
+            <% end %>
             <label class="amount">
             <span> Price: $<%= (product.price).to_i %></span>
             </label>
@@ -40,5 +40,5 @@
                                     data-locale="auto">
         </script>
     <% end %> 
-<% end %>
+  <% end %>
 </div>

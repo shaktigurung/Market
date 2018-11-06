@@ -1,0 +1,22 @@
+<h1>Chatting with 
+<% unless @conversation.with(current_user).image.nil?%>
+  <%= image_tag @conversation.with(current_user).image_url(:tiny) %> 
+<% else %>
+  <%= image_tag ActionController::Base.helpers.asset_path("default_tiny.jpg") %>
+<% end %>
+<%= link_to @conversation.with(current_user).user_name, user_path(@conversation.with(current_user).id) %></h1>
+
+<div id="conversation-main">
+  <div id="conversation-body">
+    <%= render @conversation.personal_messages %>
+  </div>
+
+  <%= form_for @personal_message do |f| %>
+    <%= hidden_field_tag 'conversation_id', @conversation.id %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<%=link_to 'Back', conversations_path %>

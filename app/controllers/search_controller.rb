@@ -1,15 +1,15 @@
 class SearchController < ApplicationController
   def index
+# Pagination logic
+# Set limit to amount of results ## Future feature will allow user to set limit
     @limit = 10
     @page = params[:page].to_i
     @page ||= 0
     @category = params['category']
     @category ||= "*"
     @query = params['search'] == "" ? "%" : params['search']
-    #Product.basic_search(@query).length
     offset = (@page * @limit)
-    # search = params['search']
-    # # search ||= []
+# Search by category or string or both or neither
     if params['search'].nil? || params['search'] == ""
         if @category == '*'
           @search = Product.all
@@ -23,13 +23,9 @@ class SearchController < ApplicationController
           @search = Product.where(category: @category).basic_search(name: @query)
         end
     end
-
+# For next and previous links
     @length = @search.length
     @search = @search.limit(@limit).offset(offset)
 
-    
-    #byebug
-    # @search = Product.basic_search(name: @query).limit(@limit).offset(offset)
-    # byebug
   end
 end

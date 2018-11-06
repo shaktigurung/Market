@@ -13,8 +13,8 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><i class="fas fa-home"></i> About Market</a></li>
-            <li> </i><%= link_to '<i class="fab fa-product-hunt"></i> Product'.html_safe, products_path, :class => 'product-link' %></li>
+            <li> <%= link_to '<i class="fas fa-home"></i> About Market'.html_safe, about_path, :class => 'product-link' %></li>
+            <li> <%= link_to '<i class="fab fa-product-hunt"></i> Product'.html_safe, products_path, :class => 'product-link' %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-folder-open"></i> Category<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -23,7 +23,7 @@
                 <li><a href="#">Games</a></li>
               </ul>
             </li>
-            <li><a href="#"><i class="fas fa-phone-square"></i> Contact</a></li>
+            <li><%= link_to '<i class="fas fa-phone-square"></i> Contact'.html_safe, contact_path, :class => 'product-link' %></li>
           </ul>
         </div>
         <div class="navbar-text pull-left">
@@ -31,10 +31,10 @@
             Welcome, <strong> <%= (current_user.first_name).upcase %></strong>  <br>
             <i class="far fa-user"></i> <%= link_to 'View profile', user_path(current_user.id), :class => 'profile-link' %> |
             <i class="far fa-edit"></i> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'profile-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'profile-link'  %>
+            <i class="fas fa-sign-out-alt"></i> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'profile-link'  %>
             <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'profile-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'profile-link'  %>
+            <i class="fas fa-user-plus"></i> <%= link_to "Sign up", new_user_registration_path, :class => 'profile-link'  %> |
+            <i class="fas fa-sign-in-alt"></i> <%= link_to "Login", new_user_session_path, :class => 'profile-link'  %>
             <% end %>
         </div>
         <div class="navbar-text pull-right">

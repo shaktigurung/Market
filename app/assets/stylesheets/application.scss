@@ -44,6 +44,7 @@ font-family: 'Muli', sans-serif;
 /*====================================================
   |||||Styling|||||
 ====================================================*/
+
 .navbar{
       background: $tertiary_color;
       width: 100%;
@@ -68,14 +69,20 @@ font-family: 'Muli', sans-serif;
 }
 
 .banner {
+      
+      .bannerimage{
+            // background: asset-data-url("banner/mainbanner.jpg");
+             width: 100%;
+            height: auto;
+            margin: 20px 0px;
+      }
       h1{
             font-family: 'Monoton', cursive;
             text-align: center;  
       }
-      p{
+      h2{
             font-family: 'Source Serif Pro', serif;
-            font-size: 1.5rem;
-            text-align: justify;
+            text-align: center;
       }
 }
 .footer{
@@ -94,14 +101,14 @@ font-family: 'Muli', sans-serif;
   |||||Media Queries|||||
 ====================================================*/
   @media (max-width: 1024px) {
-    
+     
   }
   @media(max-width:568px){
-      
+ 
     }
   @media(min-width:768px){
-      
+          
    }
     @media(min-width:382px){
-        
+   
     }

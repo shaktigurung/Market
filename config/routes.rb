@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :search, only: [:index]
-  devise_for :users do
+  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'} do
     resources :addresses
   end
   resources :users do

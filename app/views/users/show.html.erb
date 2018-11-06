@@ -35,9 +35,10 @@
     <%= render "orders/orders", order: order %>
   <% end %>
 <% end %>
-
-<p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
-
+<p><%= link_to 'Send Message', new_personal_message_path(receiver_id: @user) %> </p>
+<% if @user.id == current_user.id %>
+  <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+<% end %>
 <!-- This is just displaying the users email for now -->
 <p><%= @user.email %></p>
 <%= render 'comments/comment', comment_path: @user.id, comments: @comments, comment: @new_comment, url_path: user_comments_path(@user.id) %>

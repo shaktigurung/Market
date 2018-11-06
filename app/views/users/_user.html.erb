@@ -1,0 +1,5 @@
+<% if user.id != current_user.id%>
+  <li>  
+    <%= user.user_name %> | <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) %>   
+  </li>
+<% end %>

@@ -8,16 +8,23 @@
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 
-10.times do
-  product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Pants", quantity: 4, price: 50, condition: "Used")
-  product.save
-  product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Underwear", quantity: 4, price: 50, condition: "Used")
-  product.save
-  product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Jumper", quantity: 4, price: 50, condition: "Used")
-  product.save
-  product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Collectable", quantity: 4, price: 50, condition: "Used")
-  product.save
-  product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Gadget", quantity: 4, price: 50, condition: "Used")
-  product.save
-  product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Shirt", quantity: 4, price: 50, condition: "Used")
-end
+# 10.times do
+#   product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Pants", quantity: 4, price: 50, condition: "Used")
+#   product.save
+#   product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Underwear", quantity: 4, price: 50, condition: "Used")
+#   product.save
+#   product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Jumper", quantity: 4, price: 50, condition: "Used")
+#   product.save
+#   product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Collectable", quantity: 4, price: 50, condition: "Used")
+#   product.save
+#   product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Gadget", quantity: 4, price: 50, condition: "Used")
+#   product.save
+#   product = Product.create(user_id: 20, name: Faker::Lorem.sentence(1), description: Faker::Lorem.sentence(3), category: "Shirt", quantity: 4, price: 50, condition: "Used")
+# end
+
+# @users = User.all
+
+# @users.each do |user|
+#   user.user_name = Faker::FunnyName.name
+#   user.save
+# end

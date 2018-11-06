@@ -1,0 +1,49 @@
+
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+
+        <div class="navbar-header">
+          <%= link_to '<i class="fab fa-monero"></i> Market'.html_safe, root_path, :class=> "navbar-brand" %>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li> <%= link_to '<i class="fas fa-home"></i> About Market'.html_safe, about_path, :class => 'product-link' %></li>
+            <li> <%= link_to '<i class="fab fa-product-hunt"></i> Product'.html_safe, products_path, :class => 'product-link' %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-folder-open"></i> Category<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Games</a></li>
+              </ul>
+            </li>
+            <li><%= link_to '<i class="fas fa-phone-square"></i> Contact'.html_safe, contact_path, :class => 'product-link' %></li>
+          </ul>
+        </div>
+        <div class="navbar-text pull-left">
+            <% if user_signed_in? %>
+            Welcome, <strong> <%= (current_user.first_name).upcase %></strong>  <br>
+            <i class="far fa-user"></i> <%= link_to 'View profile', user_path(current_user.id), :class => 'profile-link' %> |
+            <i class="far fa-edit"></i> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'profile-link' %> |
+            <i class="fas fa-sign-out-alt"></i> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'profile-link'  %>
+            <% else %>
+            <i class="fas fa-user-plus"></i> <%= link_to "Sign up", new_user_registration_path, :class => 'profile-link'  %> |
+            <i class="fas fa-sign-in-alt"></i> <%= link_to "Login", new_user_session_path, :class => 'profile-link'  %>
+            <% end %>
+        </div>
+        <div class="navbar-text pull-right">
+            <%= form_with url: search_index_path, method: :get, local: true do |f| %>
+                <%= f.text_field :search %>  <i class="fas fa-search"></i>
+                <%= f.select :category, [["All","*"], ["T'Shirt", "TShirt"],["Jumper", "Jumper"], 
+                ["Pants", "Pants"], ["Underwear", "Underwear"], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
+                <%= f.submit  :search %>
+            <% end %>
+        </div>
+          </div>  
+    </nav>

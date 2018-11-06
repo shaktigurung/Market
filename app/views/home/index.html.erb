@@ -6,60 +6,75 @@
             <%= image_tag("banner/mainbanner.jpg", :class => "bannerimage") %>  
         </div>
     </div> 
-    
-    <div class = "row">                                
-                      <h3>Popular Items</h3>
+    <div class = "row"> 
+        <div class="category">                               
+                    <h3>Popular Items</h3>
                     <% @popular[0..3].each do |product|%>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                       <%= render 'products/thumb', product: product %>
                     </div>
                     <% end %>
-                     </div>
-                     
+          </div>
+    </div>  
+    <div class = "row">   
+         <div class="category">       
                     <h3>Shirts</h3>
                     <% @shirts[0..3].each do |product|%>
                       <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-                     
+            </div>
+     </div>           
+     <div class = "row">  
+           <div class="category">    
                     <h3>Jumpers</h3>
                     <% @jumpers[0..3].each do |product|%>
                       <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-                    
-                    
+            </div>
+      </div>        
+      <div class = "row">  
+           <div class="category">            
                     <h3>Pants</h3>
                     <% @pants[0..3].each do |product|%>
                       <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-                    
-                      
+            </div>
+      </div>              
+     <div class = "row">  
+         <div class="category">                
                     <h3>Underwear</h3>
                     <% @underwear[0..3].each do |product|%>
                       <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-                    
+            </div>
+      </div>     
+      <div class = "row"> 
+           <div class="category"> 
                     <h3>Collectables</h3>
                     <% @collectables[0..3].each do |product|%>
                       <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-                  
+            </div>
+     </div>
+    <div class = "row">  
+         <div class="category">        
                     <h3>Gadgets</h3>
                     <% @gadgets[0..3].each do |product|%>
                       <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
-                    <% end %>
-                   
-            </div>
+                    <% end %> 
+            </div>      
+       </div>
     </div>
 </div>

@@ -44,22 +44,24 @@ font-family: 'Muli', sans-serif;
 /*====================================================
   |||||Styling|||||
 ====================================================*/
-
+/*====================================================
+  |||||Header|||||
+====================================================*/
 .navbar{
-      background: $tertiary_color;
+      background:$tertiary_color;
       width: 100%;
       a{
             text-decoration: none;
       }
 }
 .navbar-text{
+      color:$primary_color;
       #search{
             width: 100px;
             height: 20px;
       }
 }
 .navbar-header{
-
       color: $primary_color;
       .navbar-brand {
                   color: $primary_color;
@@ -76,6 +78,12 @@ font-family: 'Muli', sans-serif;
       }
 }
 
+.profile-link{
+      color:$primary_color;
+}
+/*====================================================
+  |||||Banner|||||
+====================================================*/
 .banner {
 
       .bannerimage{
@@ -83,11 +91,18 @@ font-family: 'Muli', sans-serif;
              width: 100%;
             height: auto;
             margin: 20px 0px;
+            -moz-box-shadow:    3px 3px 5px 6px #ccc;
+            -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+            box-shadow:         3px 3px 5px 6px #ccc;
+            -webkit-filter: blur(1px); 
+            filter: blur(1px);
+   
       }
       h1{
             font-family: 'Monoton', cursive;
             color:$primary_color;
-            text-align: center;  
+            text-align: center; 
+            font-size: 8rem; 
       }
       h2{
             font-family: 'Source Serif Pro', serif;
@@ -95,7 +110,58 @@ font-family: 'Muli', sans-serif;
             text-align: center;
       }
 }
+/*====================================================
+  |||||Category|||||
+====================================================*/
+.category{
+      
+      h3{
+            color:$primary_color;
+            font-family: 'Monoton', cursive;
+            margin: 15px auto;
+            width:30%;
+            text-align: center;
+            background: $secondary_color;
+            border: 2px dashed $fifth_color;
+            line-height: 1.3em;
+            border-radius: 10px;
+            box-shadow: 0 0 0 4px $secondary_color, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+            text-shadow: -1px -1px $secondary_color;
+      }       
+}
+
+.amount{
+      color:$tertiary_color;
+}
+.outofstock{
+      color: red;
+      font-style: oblique;
+      font-weight: 400;
+      font-family: 'Muli', sans-serif;
+}
+.productname{
+      color:$primary_color;
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-top:5px;
+      // text-align: center;
+}
+.productquantity{
+      color:$fourth_color;
+}
+/*====================================================
+  |||||Stripe|||||
+====================================================*/
+button.stripe-button-el,
+button.stripe-button-el>span {
+  background-color: $secondary_color !important;
+  background-image: none;
+}
+/*====================================================
+  |||||Footer|||||
+====================================================*/
 .footer{
+      margin-top:15px;
       text-align: center;
       color: $fifth_color;
       background: $tertiary_color;
@@ -118,14 +184,54 @@ font-family: 'Muli', sans-serif;
   |||||Media Queries|||||
 ====================================================*/
   @media (max-width: 1024px) {
-     
+      .banner{
+            h1{
+                  font-size:4rem;
+            }
+            h2{
+                  font-size:1.5rem;
+            }
+      } 
+      button.stripe-button-el,
+button.stripe-button-el>span{
+      margin-bottom:5px;
+      }
   }
-  @media(max-width:568px){
- 
-    }
-  @media(min-width:768px){
-          
+  @media( max-width:768px){
+      .banner{
+            h1{
+                  font-size:4rem;
+            }
+            h2{
+                  font-size:1.5rem;
+            }
+      }
+      button.stripe-button-el,
+button.stripe-button-el>span{
+      margin-bottom:5px;
+      }
    }
+  @media(max-width:568px){
+      .banner{
+            h1{
+                  font-size:2rem;
+            }
+            h2{
+                  font-size:1.2rem;
+            }
+      }
+      .category{
+      
+            h3{
+                 font-size: 2rem;
+                 width:80%;
+            }       
+      }
+      button.stripe-button-el,
+button.stripe-button-el>span{
+      margin-bottom:5px;
+      }
+    }
     @media(min-width:382px){
-   
+     
     }

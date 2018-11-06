@@ -58,18 +58,26 @@ font-family: 'Muli', sans-serif;
             height: 20px;
       }
 }
+.navbar-header{
 
-.navbar-brand {
       color: $primary_color;
-      font-family: 'Monoton', cursive;
-      font-size: 3rem;
-      position: relative;
-      text-align: center;
-      
+      .navbar-brand {
+                  color: $primary_color;
+                  font-family: 'Monoton', cursive;
+                  font-size: 3rem;
+                  position: relative;
+                  text-align: center;    
+                  i{
+                        color: $primary_color;
+                  }
+                  a:hover, i:hover{
+                        color: $secondary_color;
+                  }         
+      }
 }
 
 .banner {
-      
+
       .bannerimage{
             // background: asset-data-url("banner/mainbanner.jpg");
              width: 100%;
@@ -78,10 +86,12 @@ font-family: 'Muli', sans-serif;
       }
       h1{
             font-family: 'Monoton', cursive;
+            color:$primary_color;
             text-align: center;  
       }
       h2{
             font-family: 'Source Serif Pro', serif;
+            color: $tertiary_color;
             text-align: center;
       }
 }
@@ -89,12 +99,19 @@ font-family: 'Muli', sans-serif;
       text-align: center;
       color: $fifth_color;
       background: $tertiary_color;
+      
       a{
             text-decoration: none;
+            color:$primary_color;
+      }
+      a:hover{
+            text-decoration: none;
+            color:$secondary_color;
       }
       p{
             font-family: 'Source Serif Pro', serif;
             font-size: 1rem;
+            padding: 5px;
       }
 }
 /*====================================================

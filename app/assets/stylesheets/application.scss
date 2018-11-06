@@ -13,16 +13,20 @@
  *= require_tree .
  *= require_self
  *= require bootstrap.min
+ *= require font-awesome
  */
  
-//Color
+/*====================================================
+  ||||| Color|||||
+====================================================*/
 $primary_color:#D7562C; 
 $secondary_color: #EFB33F;
 $tertiary_color:#373F5A;
 $fourth_color:#92C8D2;
 $fifth_color:#F5F9F8;
-
-//Bootstrap font-face
+/*====================================================
+  |||||Bootstrap font-face|||||
+====================================================*/
 @font-face {
       font-family: 'Glyphicons Halflings';
       src: url('/assets/fonts/glyphicons-halflings-regular.eot');
@@ -31,21 +35,97 @@ $fifth_color:#F5F9F8;
          url('/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
          url('/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
    }
-//Fonts
-//@import url('https://fonts.googleapis.com/css?family=Monoton|Muli|Source+Serif+Pro');
+/*====================================================
+  |||||Fonts used|||||
+====================================================*/
 /*font-family: 'Source Serif Pro', serif;
 font-family: 'Monoton', cursive;
-font-family: 'Muli', sans-serif;*/
+font-family: 'Muli', sans-serif;
+/*====================================================
+  |||||Styling|||||
+====================================================*/
 
+.navbar{
+      background: $tertiary_color;
+      width: 100%;
+      a{
+            text-decoration: none;
+      }
+}
+.navbar-text{
+      #search{
+            width: 100px;
+            height: 20px;
+      }
+}
+.navbar-header{
+
+      color: $primary_color;
+      .navbar-brand {
+                  color: $primary_color;
+                  font-family: 'Monoton', cursive;
+                  font-size: 3rem;
+                  position: relative;
+                  text-align: center;    
+                  i{
+                        color: $primary_color;
+                  }
+                  a:hover, i:hover{
+                        color: $secondary_color;
+                  }         
+      }
+}
 
 .banner {
+
+      .bannerimage{
+            // background: asset-data-url("banner/mainbanner.jpg");
+             width: 100%;
+            height: auto;
+            margin: 20px 0px;
+      }
       h1{
             font-family: 'Monoton', cursive;
+            color:$primary_color;
             text-align: center;  
+      }
+      h2{
+            font-family: 'Source Serif Pro', serif;
+            color: $tertiary_color;
+            text-align: center;
+      }
+}
+.footer{
+      text-align: center;
+      color: $fifth_color;
+      background: $tertiary_color;
+      
+      a{
+            text-decoration: none;
+            color:$primary_color;
+      }
+      a:hover{
+            text-decoration: none;
+            color:$secondary_color;
       }
       p{
             font-family: 'Source Serif Pro', serif;
-            font-size: 1.5rem;
-            text-align: justify;
+            font-size: 1rem;
+            padding: 5px;
       }
 }
+/*====================================================
+  |||||Media Queries|||||
+====================================================*/
+  @media (max-width: 1024px) {
+     
+  }
+  @media(max-width:568px){
+ 
+    }
+  @media(min-width:768px){
+          
+   }
+    @media(min-width:382px){
+   
+    }

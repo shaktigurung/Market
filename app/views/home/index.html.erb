@@ -1,59 +1,65 @@
-
-<div class= "banner">
-<h1>Welcome to Market </h1>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-</div>
 <div class= "container">
-    <div class = "row">
-            <div class="col-md-12">
-            <h3>Popular Items</h3>
+    <div class= "row">
+        <div class= "banner">
+            <h1>Welcome to <i class="fab fa-monero"></i> Market </h1>
+            <h2>A perfect place to buy and sell your goods</h2>
+            <%= image_tag("banner/mainbanner.jpg", :class => "bannerimage") %>  
+        </div>
+    </div> 
+    
+    <div class = "row">                                
+                      <h3>Popular Items</h3>
                     <% @popular[0..3].each do |product|%>
-                    <div class="col-md-3">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
                       <%= render 'products/thumb', product: product %>
                     </div>
                     <% end %>
-                    
+                     </div>
+                     
                     <h3>Shirts</h3>
                     <% @shirts[0..3].each do |product|%>
-                      <div class="col-md-3">
+                      <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-
+                     
                     <h3>Jumpers</h3>
                     <% @jumpers[0..3].each do |product|%>
-                      <div class="col-md-3">
+                      <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-
+                    
+                    
                     <h3>Pants</h3>
                     <% @pants[0..3].each do |product|%>
-                      <div class="col-md-3">
+                      <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-
+                    
+                      
                     <h3>Underwear</h3>
                     <% @underwear[0..3].each do |product|%>
-                      <div class="col-md-3">
+                      <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-
+                    
                     <h3>Collectables</h3>
                     <% @collectables[0..3].each do |product|%>
-                      <div class="col-md-3">
+                      <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
-
+                  
                     <h3>Gadgets</h3>
                     <% @gadgets[0..3].each do |product|%>
-                      <div class="col-md-3">
+                      <div class="col-xs-12 col-sm-6 col-md-3">
                         <%= render 'products/thumb', product: product %>
                       </div>
                     <% end %>
+                   
             </div>
     </div>
 </div>

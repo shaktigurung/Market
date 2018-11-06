@@ -1,4 +1,5 @@
 class Conversation < ApplicationRecord
+  before_save :remove_whitespace
   belongs_to :author, class_name: 'User'
   belongs_to :receiver, class_name: 'User'
   validates :author, uniqueness: {scope: :receiver}

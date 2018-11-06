@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :buy, :edit, :update, :destroy]
   # GET /products
   # GET /products.json
   def index
@@ -26,11 +26,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    # respond_to do |format|
-    #   if current_user.id != @product.user.id
-    #     format.html {redirect_to @product, notice: "You cannot edit this item!!!"}
-    #   end
-    # end
+    if current_user.id != @product.user.id
+      redirect_to @product, notice: "You cannot edit this item!!!"
+    end
   end
 
   # POST /products

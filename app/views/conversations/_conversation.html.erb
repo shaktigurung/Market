@@ -1,5 +1,12 @@
 <div>
-  Chatting with <%= conversation.with(current_user).user_name %>
+  Chatting with   
+  <% unless conversation.with(current_user).image.nil?%>
+    <%= image_tag conversation.with(current_user).image_url(:tiny) %> 
+  <% else %>
+    <%= image_tag ActionController::Base.helpers.asset_path("default_tiny.jpg") %>
+  <% end %>
+  
+  <%=link_to conversation.with(current_user).user_name, user_path(conversation.with(current_user).id)%>
   <br>
   <em><%= conversation.personal_messages.last.body.truncate(50) %></em>
   <div>

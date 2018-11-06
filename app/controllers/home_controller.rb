@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-    # before_action :authenticate_user!
+  
     def index
         @products = Product.includes(:orders, :product_images)
         @popular = find_popular_items

@@ -12,15 +12,15 @@ class SearchController < ApplicationController
 # Search by category or string or both or neither
     if params['search'].nil? || params['search'] == ""
         if @category == '*'
-          @search = Product.all
+          @search = Product.includes(:product_images, :user).order(updated_at: :desc).all
         else
-          @search = Product.where(category: @category)
+          @search = Product.includes(:product_images, :user).where(category: @category).order(updated_at: :desc)
         end
     else 
         if @category == '*'
-          @search = Product.basic_search(name: @query)
+          @search = Product.includes(:product_images, :user).basic_search(name: @query).order(updated_at: :desc)
         else
-          @search = Product.where(category: @category).basic_search(name: @query)
+          @search = Product.includes(:product_images, :user).where(category: @category).basic_search(name: @query).order(updated_at: :desc)
         end
     end
 # For next and previous links

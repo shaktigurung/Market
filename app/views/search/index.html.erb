@@ -1,6 +1,6 @@
 <h1>Results</h1>
 <%# Print search results%>
-<% @search.reverse.each do |result| %>
+<% @search.each do |result| %>
   <%= render 'products/thumb', product: result %>
 <% end %>
 

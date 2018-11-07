@@ -1,7 +1,13 @@
-<h1>Your Messages</h1>
-<div>
-  <%=link_to "New Conversation", users_path %> 
-</div>
-<div id="conversations">
-  <%= render @conversations %>
+<div class="container">
+  <div class ="message">
+    <div class="row">
+      <h1>Your Messages</h1>
+      <div>
+        <h3><%=link_to "New Conversation", users_path, class:"btn btn-primary"%> </h3>
+      </div>
+      <div id="conversations">
+        <%= render @conversations %>
+      </div>
+    </div>
+  </div>
 </div>

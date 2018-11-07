@@ -1,51 +1,66 @@
-<h1>Results</h1>
-<%# Print search results%>
-<% @search.each do |result| %>
-  <%= render 'products/thumb', product: result %>
-<% end %>
 
-<% if @length > @limit %>
-  <span class="inline">
-    <%# Previous link if not on page 1 %>
-    <% if params[:page].to_i > 0%>        
-      <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
-        <span class="inline">
-          <%= f.hidden_field :search, value: params[:search] %>
-          <%= f.hidden_field :page, value: params[:page].to_i - 1  %>
-          <%= f.submit :prev %>
-        </span>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <h1>Results</h1>
+    <%# Print search results%>
+    <% @search.reverse.each do |result| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= render 'products/thumb', product: result %>
+      </div>
     <% end %>
-  </span>
-    <%# Direct to page links %>
-  <span class="inline"> 
-    <% i = 0 %>
-    <% while i < (@length / @limit) %>
-      <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
-        <span class="inline">
-          <%= f.hidden_field :search, value: params[:search] %>
-          <%= f.hidden_field :page, value: i+1%>
-          <%= f.submit "#{i+2}" %>
-        </span>
-        <% i += 1 %>
-      <% end %>
-    <% end %>
-  </span>
-    <%# Next search page if available %>
-  <span class="inline">
-    <% if params[:page].to_i < (@length / @limit)%>
-      <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
-        <span class="inline">
-          <%= f.hidden_field :search, value: params[:search] %>
-          <%= f.hidden_field :page, value: params[:page].to_i + 1 %>
-          <%= f.submit :next %>
-        </span>
-      <% end %>
-    <% end %>
-<% end %>
-<%# If search field comes up empty%>
-<% if @search.empty? %>
-  <div>
-    Nothing found matching that search
+ </div>
+ <div class="row">
+    <% if @length > @limit %>
+      <span class="inline">
+        <%# Previous link if not on page 1 %>
+        <% if params[:page].to_i > 0%>        
+          <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
+            <span class="inline">
+              <%= f.hidden_field :search, value: params[:search] %>
+              <%= f.hidden_field :page, value: params[:page].to_i - 1  %>
+              <%= f.submit :prev %>
+            </span>
+          <% end %>
+        <% end %>
+      </span>
+</div>
+<div class="row">
+        <%# Direct to page links %>
+      <span class="inline"> 
+        <% i = 0 %>
+        <% while i < (@length / @limit) %>
+          <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
+            <span class="inline">
+              <%= f.hidden_field :search, value: params[:search] %>
+              <%= f.hidden_field :page, value: i+1%>
+              <%= f.submit "#{i+2}" %>
+            </span>
+            <% i += 1 %>
+          <% end %>
+        <% end %>
+      </span>
   </div>
-<% end %>
+  <div class="row">
+        <%# Next search page if available %>
+      <span class="inline">
+        <% if params[:page].to_i < (@length / @limit)%>
+          <%= form_with url: search_index_path, method: :get, local: true, class: 'inline' do |f| %>
+            <span class="inline">
+              <%= f.hidden_field :search, value: params[:search] %>
+              <%= f.hidden_field :page, value: params[:page].to_i + 1 %>
+              <%= f.submit :next %>
+            </span>
+          <% end %>
+        <% end %>
+    <% end %>
+    </div>
+    <div class="row">
+    <%# If search field comes up empty%>
+    <% if @search.empty? %>
+      <div>
+        Nothing found matching that search
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

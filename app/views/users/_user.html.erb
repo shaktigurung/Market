@@ -1,11 +1,10 @@
 <div class="container">
   <div class="message">
-  <div class="row"> 
+    <div class="row"> 
       <% if user.id != current_user.id%> 
-          <%= image_tag user.image_url(:tiny) %>
-          <%= link_to user.user_name, user_path(user.id) %>
-          <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) , class:"btn btn-primary"%>   
+         <%= render 'conversations/author', user: user %>
+         <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) , class:"btn btn-primary"%>   
       <% end %> 
-  </div>
+    </div>
   </div>
 </div>

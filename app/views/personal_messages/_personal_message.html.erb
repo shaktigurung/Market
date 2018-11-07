@@ -4,12 +4,7 @@
 <p><%= personal_message.body %></p>
 <p>
   by 
-  <% unless personal_message.user.image.nil?%>
-    <%= image_tag personal_message.user.image_url(:tiny) %> 
-  <% else %>
-    <%= image_tag ActionController::Base.helpers.asset_path("default.jpg") %>
-  <% end %>
-  <strong><%= personal_message.user.user_name %></strong>
+  <%= render 'author', user: personal_message.user  %>
   at <strong><%= personal_message.created_at %></strong>
 </p>
 <hr>

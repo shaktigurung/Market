@@ -1,5 +1,10 @@
-<% if user.id != current_user.id%>
-  <li>  
-    <%= render 'conversations/author', user: user %> | <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) %>   
-  </li>
-<% end %>
+<div class="container">
+  <div class="message">
+    <div class="row"> 
+      <% if user.id != current_user.id%> 
+         <%= render 'conversations/author', user: user %>
+         <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) , class:"btn btn-primary"%>   
+      <% end %> 
+    </div>
+  </div>
+</div>

@@ -204,7 +204,7 @@ button.stripe-button-el>span {
 /*====================================================
   |||||Product Page|||||
 ====================================================*/
-.product {
+.product, .message {
       h2 {
             color: $primary_color;
             font-family: 'Monoton', cursive;
@@ -212,6 +212,29 @@ button.stripe-button-el>span {
       h3{
             color: $tertiary_color;   
       }
+      a {
+           text-decoration: none;
+           color:$secondary_color;
+           margin:4px;
+      }
+}
+/*====================================================
+  |||||Info Page|||||
+====================================================*/
+.field {
+      font-family: 'Source Serif Pro', serif;
+	text-align: left;
+      p{
+            text-align: justify;    
+      }
+      h3{
+            color:$secondary_color;
+      }
+}
+
+h1{
+      font-family: 'Monoton', cursive;
+      color:$primary_color; 
 }
 
 /*====================================================

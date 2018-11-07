@@ -1,5 +1,5 @@
 <% if user.id != current_user.id%>
   <li>  
-    <%= image_tag user.image_url(:tiny) %> <%= link_to user.user_name, user_path(user.id) %> | <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) %>   
+    <%= render 'conversations/author', user: user %> | <%= link_to 'Send Message', new_personal_message_path(receiver_id: user) %>   
   </li>
 <% end %>

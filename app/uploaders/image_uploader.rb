@@ -23,9 +23,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   process resize_to_fit: [600, 600]
 
-  version :tiny do
-    process resize_to_fill: [40,40]
-  end
   version :thumb do
     process resize_to_fill: [200,200]
   end

@@ -1,0 +1,6 @@
+<% unless user.image.nil? %>
+  <%= image_tag user.image_url, class: "tiny" %> 
+<% else %>
+  <%= image_tag asset_path("defaulttiny.jpg") %>
+<% end %>
+<%=link_to user.user_name, user_path(user.id)%>

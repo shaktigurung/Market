@@ -1,22 +1,28 @@
-<h1>Chatting with 
-<% unless @conversation.with(current_user).image.nil?%>
-  <%= image_tag @conversation.with(current_user).image_url(:tiny) %> 
-<% else %>
-  <%= image_tag ActionController::Base.helpers.asset_path("default_tiny.jpg") %>
-<% end %>
-<%= link_to @conversation.with(current_user).user_name, user_path(@conversation.with(current_user).id) %></h1>
+<div class="container">
+   <div class ="message"> 
+    <div class="row">
+      <h1>Chatting </h1>
+      <p>
+      <% unless @conversation.with(current_user).image.nil?%>
+        <%= image_tag @conversation.with(current_user).image_url(:tiny) %> 
+      <% else %>
+        <%= image_tag ActionController::Base.helpers.asset_path("default_tiny.jpg") %>
+      <% end %>
+      <%= link_to @conversation.with(current_user).user_name, user_path(@conversation.with(current_user).id) %></p>
 
-<div id="conversation-main">
-  <div id="conversation-body">
-    <%= render @conversation.personal_messages %>
-  </div>
+      <div id="conversation-main">
+        <div id="conversation-body">
+          <%= render @conversation.personal_messages %>
+        </div>
 
-  <%= form_for @personal_message do |f| %>
-    <%= hidden_field_tag 'conversation_id', @conversation.id %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-    <%= f.submit %>
-  <% end %>
+        <%= form_for @personal_message do |f| %>
+          <%= hidden_field_tag 'conversation_id', @conversation.id %>
+          <%= f.label :Message %>
+          <%= f.text_area :body %> <br>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      <%=link_to 'Back', conversations_path, class: "btn btn-primary" %>
+      </div>
+    </div>
 </div>
-
-<%=link_to 'Back', conversations_path %>

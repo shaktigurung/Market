@@ -33,7 +33,7 @@
         <div class="navbar-text pull-right">
             <%= form_with url: search_index_path, method: :get, local: true do |f| %>
                 <%= f.text_field :search %>  <i class="fas fa-search"></i>
-                <%= f.select :category, [["All","*"], ["T'Shirt", "TShirt"],["Jumper", "Jumper"], 
+                <%= f.select :category, [["All","*"], ["Shirt", "Shirt"],["Jumper", "Jumper"], 
                 ["Pants", "Pants"], ["Underwear", "Underwear"], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
                 <%= f.submit  :search %>
             <% end %>

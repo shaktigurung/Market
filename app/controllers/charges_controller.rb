@@ -20,10 +20,10 @@ class ChargesController < ApplicationController
         :amount      => (@product.price*100).to_i ,
         :description => 'Rails Stripe customer',
         :currency    => 'aud',
-        :destination => {
-          :amount  => (@product.price*95).to_i,
-          :account => @product.user.customer_id
-        }
+        # :destination => {
+        #   :amount  => (@product.price*95).to_i,
+        #   :account => @product.user.customer_id
+        # }
       )
 # Create tracking order
       @order = Order.create(

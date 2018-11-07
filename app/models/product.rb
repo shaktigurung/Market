@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   has_many :orders
   has_many :comments, as: :commentable, dependent: :destroy
 
+  validates :name, :quantity, :price, presence: true
   validates :quantity, :inclusion => 0..99, :on => :create
   validates :price, :inclusion => 1..9999, :on => :create
 end

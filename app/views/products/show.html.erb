@@ -1,82 +1,88 @@
-<p>
-  <strong>Name:</strong>
-  <%= @product.name.titleize %>
-</p>
+<div class="container">
+    <div class="product">
+        <div class="row">
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-<p>
-  <strong>Seller:</strong>
-  <%= link_to "#{@product.user.user_name}", user_path(@product.user.id)%>
-</p>
+            <p>
+              <strong>Name:</strong>
+              <%= @product.name.titleize %>
+            </p>
 
-<p>
-  <strong>Image:</strong>
-  <%# if @product.product_images.image? %>
-    <% @product.product_images.each do |image| %>
-      <%= image_tag image.image_url %>
-    <% end %>
-  <%# end %>
-</p>
+            <p>
+              <strong>Description:</strong>
+              <%= @product.description %>
+            </p>
+            <p>
+              <strong>Seller:</strong>
+              <%= link_to "#{@product.user.user_name}", user_path(@product.user.id)%>
+            </p>
 
-<p>
-  <strong>Quantity:</strong>
-  <% if @product.quantity > 0 %>
-    <%= @product.quantity %>
-  <% else %>
-    <span class='red'>OUT OF STOCK</span>
-  <% end %>
-</p>
+            <p>
+              <strong>Image:</strong>
+              <%# if @product.product_images.image? %>
+                <% @product.product_images.each do |image| %>
+                  <%= image_tag image.image_url %>
+                <% end %>
+              <%# end %>
+            </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+            <p>
+              <strong>Quantity:</strong>
+              <% if @product.quantity > 0 %>
+                <%= @product.quantity %>
+              <% else %>
+                <span class='red'>OUT OF STOCK</span>
+              <% end %>
+            </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
-</p>
+            <p>
+              <strong>Price:</strong>
+              <%= @product.price %>
+            </p>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @product.condition %>
-</p>
+            <p>
+              <strong>Category:</strong>
+              <%= @product.category %>
+            </p>
 
- <%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %> 
-<% if @product.quantity > 0 %>
- <%= form_tag charges_path do %>
-                        <article>
-                            <% if flash[:error].present? %>
-                            <div id="error_explanation">
-                                <p><%= flash[:error] %></p>
-                            </div>
-                            <% end %><br>
-                            <label class="amount">
-                            <span> Price: $<%= (@product.price).to_i %></span>
-                            </label>
-                            <input type="hidden" value="<%= @product.id %>" name="product_id">
-                        </article>
+            <p>
+              <strong>Condition:</strong>
+              <%= @product.condition %>
+            </p>
 
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                        data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
-                                                        data-description=" What a buy !!! <%= current_user.first_name %>"
-                                                        data-label="Buy now"
-                                                        data-email="<%= current_user.email %>"
-                                                        data-amount="<%= ((@product.price)*100) %>"
-                                                        data-locale="auto"></script>
-                     
-      <%end%>
-<%end%>
-<p>
-  <%#= link_to "Buy",new_charge_path(product: @product.id) %>
-</p>
+            <%= render 'comments/comment', comment_path: @product.id, comments: @comments, comment: @new_comment, url_path: product_comments_path(@product.id) %> 
+            <% if @product.quantity > 0 %>
+            <%= form_tag charges_path do %>
+                                    <article>
+                                        <% if flash[:error].present? %>
+                                        <div id="error_explanation">
+                                            <p><%= flash[:error] %></p>
+                                        </div>
+                                        <% end %><br>
+                                        <label class="amount">
+                                        <span> Price: $<%= (@product.price).to_i %></span>
+                                        </label>
+                                        <input type="hidden" value="<%= @product.id %>" name="product_id">
+                                    </article>
 
-<%= link_to 'Back', products_path %>
-<% if user_signed_in? && current_user.id == @product.id %>
-  <%= link_to 'Edit', edit_product_path(@product) %>
-  <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+                                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                                    data-key="<%= Rails.application.credentials.stripe[:PUBLISHABLE_KEY] %>"
+                                                                    data-description=" What a buy !!! <%= current_user.first_name %>"
+                                                                    data-label="Buy now"
+                                                                    data-email="<%= current_user.email %>"
+                                                                    data-amount="<%= ((@product.price)*100) %>"
+                                                                    data-locale="auto"></script>
+                                
+                  <%end%>
+            <%end%>
+            <p>
+              <%#= link_to "Buy",new_charge_path(product: @product.id) %>
+            </p>
 
+            <%= link_to 'Back', products_path,class:"btn btn-primary"%>
+            <% if user_signed_in? && current_user.id == @product.id %>
+              <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-success" %>
+              <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-danger"%>
+            <% end %>
+        </div>
+    </div>
+</div>

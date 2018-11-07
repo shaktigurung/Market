@@ -3,17 +3,17 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :charges
   resources :products do
-    resources :product_images
-    resources :comments
+    resources :product_images, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :search, only: [:index]
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'} do
-    resources :addresses
+    resources :addresses, only: [:create, :destroy]
   end
   resources :users, only: [:index, :show] do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
-  resources :orders
+  resources :orders, only: [:create, :destroy]
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   root "home#index"

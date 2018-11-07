@@ -19,9 +19,9 @@ class User < ApplicationRecord
   end
 
 
-  has_many :products
+  has_many :products, dependent: :destroy
   has_many :orders
-  has_many :addresses
+  has_many :addresses, dependent: :destroy
   accepts_nested_attributes_for :addresses
   has_many :comments, as: :commentable, dependent: :destroy
   mount_uploader :image, ImageUploader
@@ -29,4 +29,6 @@ class User < ApplicationRecord
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
   has_many :personal_messages, dependent: :destroy
+
+  validates :user_name, :first_name, :last_name,  presence: true
 end

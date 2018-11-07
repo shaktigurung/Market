@@ -1,44 +1,46 @@
 <!-- I am able to call full_name because it is stated in the helper methods file -->
 <h1><%= @user.user_name %></h1>
-
-<!-- This will take the uploaded image and display it -->
-<p>
-  <strong>Image:</strong>
-  <% unless @user.image.nil? %>
-    <div>
-      <%= image_tag @user.image.thumb.url %>
+<div class="container">
+    <div class ="row">
+      <!-- This will take the uploaded image and display it -->
+        <% unless @user.image.nil? %>
+          <div>
+            <%= image_tag @user.image.thumb.url %>
+          </div>
+        <% end %>
+      
+        <div class= "profile">
+          <h2> <%= full_name.upcase %> </h2>
+          <p> <%= @user.description %> </p>
+          <p> <%= @user.email %> </p>
+        </div>
     </div>
-  <% end %>
-</p>
+    <div class="row">
+        <div class= "list">
+        <h3> Your Items </h3>
+        <% unless @user.products.empty?%>
+          <% @user.products.reverse.each do |product| %>
+           <div class="col-xs-12 col-sm-6 col-md-3">
+            <%= render 'products/thumb', product: product %>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+    </div>
+    <div class ="row">
+        <div class= "order">
+        <% if @user.id == current_user.id%>
+          <h3>Order History</h3>
+          <% @user.orders.reverse.each do |order| %>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <%= render "orders/orders", order: order %>
+          </div>
+          <% end %>
+        <% end %>
+        </div>
+    </div>
 
-<p>
-  <strong>Full Name:</strong>
-  <%= full_name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <div>
-    <%= @user.description %>
-  </div>
-</p>
-
-<h4> Your Listed Items: </h4>
-<% unless @user.products.empty?%>
-  <% @user.products.reverse.each do |product| %>
-    <%= render 'products/thumb', product: product %>
-  <% end %>
-<% end %>
-<% if @user.id == current_user.id%>
-  <h4>Order History:</h4>
-  <% @user.orders.reverse.each do |order| %>
-    <%= render "orders/orders", order: order %>
-  <% end %>
-<% end %>
 <p><%= link_to 'Send Message', new_personal_message_path(receiver_id: @user) %> </p>
-<% if @user.id == current_user.id %>
-  <p><%= link_to 'Edit Profile', edit_user_registration_path(@user) %></p>
-<% end %>
-<!-- This is just displaying the users email for now -->
-<p><%= @user.email %></p>
+
 <%= render 'comments/comment', comment_path: @user.id, comments: @comments, comment: @new_comment, url_path: user_comments_path(@user.id) %>
+</div>

@@ -180,6 +180,40 @@ button.stripe-button-el>span {
             padding: 5px;
       }
 }
+
+/*====================================================
+  |||||Profile Page|||||
+====================================================*/
+.profile{
+      font-family: 'Source Serif Pro', serif;
+      h2{
+            color: $primary_color;
+      }
+      p{
+            color: $tertiary_color;
+      }
+}
+
+.list, .order{
+      
+      h3{
+            color: $primary_color;
+            font-family: 'Monoton', cursive;
+      }
+}
+/*====================================================
+  |||||Product Page|||||
+====================================================*/
+.product {
+      h2 {
+            color: $primary_color;
+            font-family: 'Monoton', cursive;
+      }
+      h3{
+            color: $tertiary_color;   
+      }
+}
+
 /*====================================================
   |||||Media Queries|||||
 ====================================================*/

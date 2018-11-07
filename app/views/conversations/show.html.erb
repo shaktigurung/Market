@@ -2,16 +2,7 @@
    <div class ="message"> 
     <div class="row">
       <h1>Chatting </h1>
-      <p>
-      <% unless @conversation.with(current_user).image.nil?%>
-        <%= image_tag @conversation.with(current_user).image_url(:tiny) %> 
-      <% else %>
-        <%= image_tag ActionController::Base.helpers.asset_path("default_tiny.jpg") %>
-      <% end %>
-      <%= link_to @conversation.with(current_user).user_name, user_path(@conversation.with(current_user).id) %></p>
-      <h1>Chatting with 
       <%= render 'author', user: @conversation.with(current_user) %>
-      </h1>
       <div id="conversation-main">
         <div id="conversation-body">
           <%= render @conversation.personal_messages %>

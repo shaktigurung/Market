@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.includes(:product_images, :comments).order(id: :desc)
+    @products = Product.includes(:product_images, :comments, :user).order(id: :desc)
   end
 
   def buy

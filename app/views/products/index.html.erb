@@ -5,12 +5,12 @@
         <h2> Current List of Products </h2>
        
         <% @products.each do |product| %>
-         <% if product.user.id != current_user.id %>
-          <div class="col-xs-12 col-sm-6 col-md-3">
+          <% if user_signed_in? && product.user.id != current_user.id %>
+            <div class="col-xs-12 col-sm-6 col-md-3">
               <%= render 'thumb', product: product %>
-          </div>
-        <% end %>
+            </div>
           <% end %>
+        <% end %>
       </div>
     </div>
 </div> 

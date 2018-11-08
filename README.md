@@ -97,8 +97,28 @@ Designing the database was a difficult task for the team. The initial designed d
 	4. Bootstrap for CSS framework and SASS for pre-processor
 	5. Some of the important gems are DEVISE for authentication, ActiveAdmin for the admin panel, AWS for file upload and Stripe for the payment system.
 
+6. Identify the database to be used in your App and provide a justification for your choice.
+ - Postgresql will be the database used within the app. This is due to it having a wide variety of features (data types, data integrity, concurrency, performance, reliability, disaster recovery, security, extensibility, internationalization, and text search). Although, for a low-level application not all of the functionality of Postgresql would be used. Additionally, Postgresql has been the main database that we as a team have been learning in class, therefore, it was the one we knew the most about.
 
+7. Identify and describe the production database setup (i.e. Postgres instance).
+ - We are using Postgresql as our Production level database. It is a open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workload.
+ - Postgresql comes with many features that aim to help developers to build applications, and administrators to protect data integrity and build fault-tolerant environments, and help you manage data without any complication regarding their volume. 
+ - We are using Heroku for deployment of our App. It has its own Heroku Postgres structure for operational experience. It provides scaling application and integration of useful runtime features for developers worldwide, and applies it to the data stack. This integration provides seamless approach to building applications with a solid data layer built in.
+ - Heroku Postgres helps us to maximize our data instead of spending time on database setup and maintenance. Testing new schema migrations, managing database access levels and protect queries, scale horizontally and allow our team to quickly access data. It continuously protects our data and seamlessly applies the latest security patch.
 
+8. Describe the architecture of your App.
+ - The application is a Ruby on Rails application based on Model View Controller (MVC) pattern. MVC separates the input, processing, and output of an application which provides added security and compartmentalizes different aspects of the application which helps in the of workflow and quality control. Separating storage and logic from the view allows for greater freedom in view creation and minimal code repetition. Views can be updated and changed without having to change the foundations of the app.
+ - MVC allows for easy separation of tasks which makes delegation easier and allows developers to operate independently of one another
+ - It is also easy to implement and Rails comes with the foundations for MVC straight out of the box allowing development to begin straight away.
+
+9. Explain the different high-level components (abstractions) in your App.
+- Some of the high-level components in our App are: 
+	1. Admin panel: We have incorporated it into our system. However, due to time limitations, it is only working partially.
+	2. Bidding System: This feature is also our abstraction since we could not abide it into our App
+	3. Advanced Search:  We have included normal search and search with the category in our system. However, we have missed incorporating Advanced search feature.
+
+10. Detail any third party services that your App will use.
+	- Within our app, we are using mainly Stripe and Carrierwave as the major third parties. Stripe handles everything to do with payment. It also allows is able to handle user information. We connect to stripe for order information as well as user history in the future. Carrierwave allows us to store all the images uploaded by any user externally so they are not stored within our database (only references to the images are stored).
 
 
 

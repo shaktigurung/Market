@@ -11,6 +11,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+     <!--Preloader-->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    
     <%= render partial: 'layouts/header' %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

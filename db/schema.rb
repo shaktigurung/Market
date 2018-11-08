@@ -74,6 +74,16 @@ ActiveRecord::Schema.define(version: 2018_11_08_002828) do
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["product_id"], name: "index_order_details_on_product_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "stripe_charge_id"
     t.bigint "user_id"

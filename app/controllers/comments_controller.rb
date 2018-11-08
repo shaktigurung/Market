@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_commentable  
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-    
+  before_action :check_permission, only: [:edit, :update, :destroy] 
 
   # GET /comments/new
   def new
@@ -69,5 +69,11 @@ class CommentsController < ApplicationController
       @commentable = Product.find(params[:product_id]) if params[:product_id]
       @commentable = User.find(params[:user_id]) if params[:user_id]
       #@commentable = Comment.find(params[:parent_id]) if params[:parent_id]
+    end
+
+    def check_permission
+      if user_signed_in? && @comment.user.id != current_user.id
+        redirect_to '/', alert: "You do not have permission for that action"
+      end
     end
 end

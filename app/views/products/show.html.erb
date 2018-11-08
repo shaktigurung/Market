@@ -17,12 +17,13 @@
             </p>
 
             <p>
-              <strong>Image:</strong>
-              <%# if @product.product_images.image? %>
+              <% unless @product.product_images.empty? %>
                 <% @product.product_images.each do |image| %>
                   <%= image_tag image.image_url %>
                 <% end %>
-              <%# end %>
+              <% else %>
+                <%= image_tag asset_path('default.jpg') %>
+              <% end %>
             </p>
 
             <p>

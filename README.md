@@ -116,9 +116,8 @@ Designing the database was a difficult task for the team. The initial designed d
 9. Explain the different high-level components (abstractions) in your App.
 - Some of the high-level components in our App are: 
 	1. Admin panel: We have incorporated it into our system. However, due to time limitations, it is only working partially.
-	2. Bidding System: This feature is also our abstraction since we could not abide it into our App
-	3. Advanced Search:  We have included normal search and search with the category in our system. However, we have missed incorporating Advanced search feature.
-	4. Order details: We were thinking to provide full order details to the buyer regarding their order. We have partially incorporated it into our current app.
+	2. Advanced Search:  We have included normal search and search with the category in our system. However, we have missed incorporating Advanced search feature.
+	3. Order details: We were thinking to provide full order details to the buyer regarding their order. We have partially incorporated it into our current app.
 
 10. Detail any third party services that your App will use.
  - Within our app, we are using mainly Stripe and Carrierwave as the major third parties. Stripe handles everything to do with payment. It also allows is able to handle user information. We connect to stripe for order information as well as user history in the future. Carrierwave allows us to store all the images uploaded by any user externally so they are not stored within our database (only references to the images are stored).
@@ -174,7 +173,11 @@ Designing the database was a difficult task for the team. The initial designed d
  - Tasks were generally delegated to those who had already worked on dependent tasks to allow for smooth implementation, rather than having to learn another members codebase. 
 
 18. Discuss how Agile methodology is being implemented in your project.
- - By using the agile methodology we went over the requirements which were pulled from the wireframes. We then as a team laid out a rough plan for our development process. As a team, we decided to do a majority of the design after the base development of the product was complete. We then release the product on Heroku for it to be live. If we have missed anything major we will update as soon as possible. If not we would implement updates when enough improvements were made.
+- By using the agile methodology we went over the requirements which were pulled from the wireframes. We then as a team laid out a rough plan for our development process. As a team, we decided to do a majority of the design after the base development of the product was complete. We then release the product on Heroku for it to be live. If we have missed anything major we will update as soon as possible. If not we would implement updates when enough improvements were made.
+- Regular stand-ups were held every day to delegate tasks
+- An MVP was created for an early functioning application and additional features were tested and added incrementally
+- Tasks were seperated into "sprints" to ensure tasks could begin and be completed in a short time
+
 
 19. Provide an overview and description of your Source control process.
  - We are using Git (Github) as our VCS (version control system). It allows us to track all changes to every file. Using Git means that we do not need to have any other software or application, because it is entirely file based. In the team we didn’t have a set structure when using Git which looking back is something we should have had. Although, for new features, we would create a separate branch on our local and push that to the repository. Once the feature was complete it would then be merged into the master. 
@@ -186,10 +189,24 @@ Designing the database was a difficult task for the team. The initial designed d
  - Information System Security or INFOSEC refers to keeping information confidential, available, and assuring its integrity. It does not only deal with computer security but also protects data and information in all of its applications, such as phone conversations.
 
 22. Discuss methods you will use to protect information and data.
- - Due to not having enough experience and knowledge of security and information/data protection, we are using stripe to handle everything. Stripe handles all user information, mainly card details. 
+- Highly sensitive data, such as credit card information and payment processing is handled by stripe which takes the   responsibility from the application.
+- Other sensitive data (such as address) is only accessible to relevant parties when it is required (such as when an order has been made)
+
 
  23. Research what your legal obligations are in relation to handling user data.
- - As of the 25th of May, 2018 Australian businesses of any size may need to comply with the General Data Protection Regulation (GDPR). This is according to the Office of the Australian Information Commissioner (OAIC).
+ As of the 25th of May, 2018 Australian businesses of any size may need to comply with the General Data Protection Regulation (GDPR). This is according to the Office of the Australian Information Commissioner (OAIC).
+- Relevant guidelines include:
+	- Implement a privacy by design approach to compliance
+	- Adopt transparent information handling practices.
+	- Implement appropriate technical and organisational measures, including data protection policies, to ensure and be 	      able to demonstrate that processing complies with the GDPR 
+	- Minimising the processing of personal data (only collecting and using necessary data)
+	- Transparency as to the functions and processing of personal data
+	- Enabling the controller to create and improve security features.
+	- User given consent to the processing of his or her personal data for one or more specific purposes
+	- The individual is adequately informed before giving consent
+	- Data controllers must advise the relevant supervisory authority of a data breach within 72 hours of becoming aware 	       of the breach unless the breach is unlikely to result in a high risk to the rights and freedoms of individuals
+	- The right to erasure (which encompasses the ‘right to be forgotten’) gives individuals a right to require data 	   controllers to delete their data in certain circumstances
+
 
 
 

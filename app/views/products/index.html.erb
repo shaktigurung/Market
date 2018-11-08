@@ -3,9 +3,11 @@
     <div class="row">
       <h3><%= link_to 'Add New Product', new_product_path, class:"btn btn-primary" %></h3>
         <h2> Current List of Products </h2>
-        <% @products.reverse.each do |product| %>
+        <% @products.each do |product| %>
           <div class="col-xs-12 col-sm-6 col-md-3">
-            <%= render 'thumb', product: product %>
+            <% if product.user.id != current_user.id %>
+              <%= render 'thumb', product: product %>
+            <% end %>
           </div>
         <% end %>
       </div>

@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   def index
 # Pagination logic
 # Set limit to amount of results ## Future feature will allow user to set limit
-    @limit = 10
+    @limit = 12
     @page = params[:page].to_i
     @page ||= 0
     @category = params['category']

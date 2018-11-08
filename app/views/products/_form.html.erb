@@ -29,7 +29,7 @@
   <% end %>
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, min: 0 %>
   </div>
 
   <div class="field">
@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category, [["T'Shirt", "Shirt"],["Jumper", "Jumper"], ["Pants", "Pants"], ['Underwear', 'Underwear'], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
+    <%= form.select :category, [["Shirt", "Shirt"],["Jumper", "Jumper"], ["Pants", "Pants"], ['Underwear', 'Underwear'], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
   </div>
   
   <div class="field">

@@ -9,7 +9,7 @@
 <%#  Link to comment author %>
         By <%= render 'conversations/author', user: com.user %> created at: <%= com.created_at %>
 <%# Only display destroy link if current user created %>
-        <% if com.user.id == current_user.id %>
+        <% if user_signed_in? && com.user.id == current_user.id %>
           <%= link_to 'Destroy', user_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "User" %>
           <%= link_to 'Destroy', product_comment_path(comment_path, com.id), method: :delete, data: { confirm: 'Are you sure?' } if com.commentable_type == "Product" %>
         <% end %>

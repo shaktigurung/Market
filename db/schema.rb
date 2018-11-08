@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_012805) do
+ActiveRecord::Schema.define(version: 2018_11_08_002828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -72,16 +72,6 @@ ActiveRecord::Schema.define(version: 2018_11_06_012805) do
     t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
     t.index ["author_id"], name: "index_conversations_on_author_id"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
-  end
-
-  create_table "order_details", force: :cascade do |t|
-    t.bigint "order_id"
-    t.bigint "product_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -152,8 +142,6 @@ ActiveRecord::Schema.define(version: 2018_11_06_012805) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "comments", "users"
-  add_foreign_key "order_details", "orders"
-  add_foreign_key "order_details", "products"
   add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"

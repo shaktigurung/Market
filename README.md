@@ -118,7 +118,62 @@ Designing the database was a difficult task for the team. The initial designed d
 	3. Advanced Search:  We have included normal search and search with the category in our system. However, we have missed incorporating Advanced search feature.
 
 10. Detail any third party services that your App will use.
-	- Within our app, we are using mainly Stripe and Carrierwave as the major third parties. Stripe handles everything to do with payment. It also allows is able to handle user information. We connect to stripe for order information as well as user history in the future. Carrierwave allows us to store all the images uploaded by any user externally so they are not stored within our database (only references to the images are stored).
+ - Within our app, we are using mainly Stripe and Carrierwave as the major third parties. Stripe handles everything to do with payment. It also allows is able to handle user information. We connect to stripe for order information as well as user history in the future. Carrierwave allows us to store all the images uploaded by any user externally so they are not stored within our database (only references to the images are stored).
+
+11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+ - They are similar due to being a relationship orientated database. The databases would have at the very minimum these tables: 
+	- Product
+	- User 
+	- Order
+	- Delivery 
+	- Order details
+
+12. Discuss the database relations to be implemented.
+ - Within the database, there will be: 
+	- has_many 
+	- belongs_to
+	- has_one
+ - There will also be accepts_nested_attributes_for which will define an attributes writer for the specified association(s).
+
+13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
+ - 
+
+14. Provide your database schema design.
+
+
+15. Provide User stories for your App.
+
+
+16. Provide Wireframes for your App.
+
+
+17. Describe the way tasks are allocated and tracked in your project.
+ - Regular stand-ups were held each day where each member of the team explained what they wished to work on and what needs to be done from the others.
+ - Tasks were mainly allocated through what person wanted to work on. Although, there are exceptions where we worked together for the initialization of the project.
+ - Tasks were generally delegated to those who had already worked on dependent tasks to allow for smooth implementation, rather than having to learn another members codebase. 
+
+18. Discuss how Agile methodology is being implemented in your project.
+ - By using the agile methodology we went over the requirements which were pulled from the wireframes. We then as a team laid out a rough plan for our development process. As a team, we decided to do a majority of the design after the base development of the product was complete. We then release the product on Heroku for it to be live. If we have missed anything major we will update as soon as possible. If not we would implement updates when enough improvements were made.
+
+19. Provide an overview and description of your Source control process.
+ - We are using Git (Github) as our VCS (version control system). It allows us to track all changes to every file. Using Git means that we do not need to have any other software or application, because it is entirely file based. In the team we didn’t have a set structure when using Git which looking back is something we should have had. Although, for new features, we would create a separate branch on our local and push that to the repository. Once the feature was complete it would then be merged into the master. 
+
+20. Provide an overview and description of your Testing process.
+ - We mainly focused on alpha-testing (pre-release testing). Where back-end (database, Carrierwave, Stripe),  user flow, end-to-end and usability where the main types of tests done. Before merging to the master branch, the feature would be tested on the local machine to make sure no problems occurred. After the merge to the master was done, the repo was pulled to developers local machines and tested again. This would allow us to confirm that no problems were had before more features were added. 
+
+21. Discuss and analyze requirements related to information system security.
+ - Information System Security or INFOSEC refers to keeping information confidential, available, and assuring its integrity. It does not only deal with computer security but also protects data and information in all of its applications, such as phone conversations.
+
+22. Discuss methods you will use to protect information and data.
+ - Due to not having enough experience and knowledge of security and information/data protection, we are using stripe to handle everything. Stripe handles all user information, mainly card details. 
+
+ 23. Research what your legal obligations are in relation to handling user data.
+ - As of the 25th of May, 2018 Australian businesses of any size may need to comply with the General Data Protection Regulation (GDPR). This is according to the Office of the Australian Information Commissioner (OAIC).
+
+
+
+
+
 
 
 

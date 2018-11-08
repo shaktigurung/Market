@@ -116,6 +116,7 @@ Designing the database was a difficult task for the team. The initial designed d
 	1. Admin panel: We have incorporated it into our system. However, due to time limitations, it is only working partially.
 	2. Bidding System: This feature is also our abstraction since we could not abide it into our App
 	3. Advanced Search:  We have included normal search and search with the category in our system. However, we have missed incorporating Advanced search feature.
+	4. Order details: We were thinking to provide full order details to the buyer regarding their order. We have partially incorporated it into our current app.
 
 10. Detail any third party services that your App will use.
  - Within our app, we are using mainly Stripe and Carrierwave as the major third parties. Stripe handles everything to do with payment. It also allows is able to handle user information. We connect to stripe for order information as well as user history in the future. Carrierwave allows us to store all the images uploaded by any user externally so they are not stored within our database (only references to the images are stored).
@@ -140,12 +141,15 @@ Designing the database was a difficult task for the team. The initial designed d
 
 14. Provide your database schema design.
 
+![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/FirstERD.png)
 
 15. Provide User stories for your App.
 
+![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/ContinuedTrello.png)
 
 16. Provide Wireframes for your App.
 
+![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/Phone_wire_frame.png)
 
 17. Describe the way tasks are allocated and tracked in your project.
  - Regular stand-ups were held each day where each member of the team explained what they wished to work on and what needs to be done from the others.

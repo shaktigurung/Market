@@ -1,20 +1,23 @@
 <div class="container">
-   <div class ="message"> 
+  <div class ="message"> 
     <div class="row">
       <h1>Chatting </h1>
       <%= render 'author', user: @conversation.with(current_user) %>
+      
       <div id="conversation-main">
         <div id="conversation-body">
           <%= render @conversation.personal_messages %>
         </div>
+        
         <%= form_for @personal_message do |f| %>
           <%= hidden_field_tag 'conversation_id', @conversation.id %>
           <%= f.label :Message %>
           <%= f.text_area :body %> <br>
           <%= f.submit %>
         <% end %>
+
       </div>
-      <%=link_to 'Back', conversations_path, class: "btn btn-primary" %>
-      </div>
+      <%=link_to 'Back', conversations_path, class: "btn btn-primary" %> 
     </div>
+  </div>
 </div>

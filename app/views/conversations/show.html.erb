@@ -10,8 +10,8 @@
         <%= form_for @personal_message do |f| %>
           <%= hidden_field_tag 'conversation_id', @conversation.id %>
           <%= f.label :Message %>
-          <%= f.text_area :body %> <br>
-          <%= f.submit %>
+          <%= f.text_area :body, class:"form-control"%> <br>
+          <%= f.submit class: "submit" %>
         <% end %>
       </div>
       <%=link_to 'Back', conversations_path, class: "btn btn-primary" %>

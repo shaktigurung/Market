@@ -1,11 +1,11 @@
-<div>
+<div class="container">
+<div class="message">
+<div class="row">
   <h2>Comments</h2>
 <%#  List all existing comments %>
     <% comments.each do |com|%>
       <div>
         <%= com.content %>
-      </div>
-      <div>
 <%#  Link to comment author %>
         By <%= render 'conversations/author', user: com.user %> created at: <%= com.created_at %>
 <%# Only display destroy link if current user created %>
@@ -27,9 +27,11 @@
         </div>
 
         <div class="actions">
-          <%= form.submit %>
+          <%= form.submit class:"submit" %>
         </div>
       <% end%>
+    </div>
+      </div>
     </div>
   </div>
 <% end %>

@@ -48,6 +48,12 @@ font-family: 'Muli', sans-serif;
 .inline {
   display:inline;
 }
+form {
+      input[type=submit].submit{
+      background: $primary_color;
+      color:$secondary_color;   
+ }
+}
 /*====================================================
   |||||Header|||||
 ====================================================*/

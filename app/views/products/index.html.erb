@@ -3,7 +3,6 @@
     <div class="row">
       <h3><%= link_to 'Add New Product', new_product_path, class:"btn btn-primary" %></h3>
         <h2> Current List of Products </h2>
-       
         <% @products.each do |product| %>
          <% if product.user.id != current_user.id %>
           <div class="col-xs-12 col-sm-6 col-md-3">

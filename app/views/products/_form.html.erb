@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"form-control" %>
   </div>
 
   <%= form.fields_for :product_image do |t| %>
@@ -27,27 +27,27 @@
       <%= t.file_field :image, :multiple => true %>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, min: 0 %>
+    <%= form.number_field :quantity, min: 0, class:"form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.number_field :price, min: 1, max: 9999 %>
+    <%= form.number_field :price, min: 1, max: 9999 , class:"form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :category %>
-    <%= form.select :category, [["Shirt", "Shirt"],["Jumper", "Jumper"], ["Pants", "Pants"], ['Underwear', 'Underwear'], ["Collectable", "Collectable"], ["Gadget", "Gadget"]] %>
+    <%= form.select :category, [["Shirt", "Shirt"],["Jumper", "Jumper"], ["Pants", "Pants"], ['Underwear', 'Underwear'], ["Collectable", "Collectable"], ["Gadget", "Gadget"]], class:"form-control" %>
   </div>
   
-  <div class="field">
+  <div class="form-group">
     <%= form.label :condition %>
-    <%= form.select :condition, [["Unused", "Unused"],["Used", "Used"]]  %>
+    <%= form.select :condition, [["Unused", "Unused"],["Used", "Used"]], class:"form-control"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Product", class:"submit" %>
   </div>
 <% end %>

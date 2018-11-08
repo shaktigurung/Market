@@ -76,7 +76,7 @@ Designing the database was a difficult task for the team. The initial designed d
  - Our project challenged us to create a two-sided marketplace. This marketplace serves a platform to sell products to users. 
 
 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
- - We are building this Application to provide a simple platform to buy and sell goods without any complication. Some of the competitors in the market have a very complicated system which makes it difficult to perform any kind of transaction. 
+ - We are building this Application to provide a simple platform to buy and sell goods without any complication. Some of the competitors in the market have a very complicated system which makes it difficult to perform any kind of transaction. Other platforms also require signing up to a third-party payment system (i.e eBay and PayPal) whilst this allows the user to make purchases with a simple registration.
 
 3. Describe the project will you be conducting and how. your App will address the needs.
  - We are building “ Market App”. This App will provide a simpler way to have two-sided marketing between our buyer and seller. In this platform, anyone can be a buyer or a seller. They will be provided with a process to execute their business transaction without any hassle.
@@ -137,7 +137,21 @@ Designing the database was a difficult task for the team. The initial designed d
  - There will also be accepts_nested_attributes_for which will define an attributes writer for the specified association(s).
 
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
- - 
+ - The project connects the models together becoming a relational database.
+ - The user table has many addresses which allow for faster queries and the future implementation of multiple addresses for a user
+ - Users have many products so a user can create many products under the one login
+ - Users have comments they authored as well as comments on their profile left by other users or themselves
+ - Users have many orders to track their previous transactions
+ - Users have many authored messages and received messages in a multi-referencing, custom foreign key relationship
+ - Products belong to a user which is a user reference for the creator of the product listing
+ - Products have many product_images to allow multiple images per product
+ - Products have many comments
+ - Products have many order to track purchases
+ - Addresses belong to users and have many orders
+ - Comments have a polymorphic relation to both products and users through “commentable” Id and type
+ - Users have many conversations, one per other user
+ - Conversations have many personal messages
+
 
 14. Provide your database schema design.
 

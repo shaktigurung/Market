@@ -52,23 +52,23 @@ We worked as a team during the intial stages of the project. We had meetings dur
 
 There was an initial Trello board created with very minimal cards and tables. It was fleshed out to include the user stores as well as specific To Do Lists for the team. In hindsight instead of having separate lists, we could have just added a member to a specific card to clean the board up. When things were finished they would be moved to the done list. Anything that we were working on was moved to our personal list.  
 
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/FirstTrello.png)
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/ContinuedTrello.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/FirstTrello.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/ContinuedTrello.png)
 
 ### Wireframes
 
 The wireframes were created before the ERD (Entity–relationship model). It allowed for the team to come up with what tables would be needed due to the features in the wireframes.
 
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/Phone_wire_frame.png)
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/Desktop_wire_frame.png) 
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/Phone_wire_frame.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/Desktop_wire_frame.png) 
 
 ### Designing database
 
 Designing the database was a difficult task for the team. The initial designed did not contain many fields that we needed. The design was then changed to better accommodate our needs. Even though the new design was better than the initial one, additional columns were added to allow for features to be implemented. Additionally, there are also columns that are now redundant and will be dropped from the relevant tables.
 
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/FirstERD.png)
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/SecondERD.png)
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/ThirdERD.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/FirstERD.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/SecondERD.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/ThirdERD.png)
 
 ## Questions:
 
@@ -154,16 +154,17 @@ Designing the database was a difficult task for the team. The initial designed d
 
 
 14. Provide your database schema design.
-
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/FirstERD.png)
+ - More screenshots are within submitted documents
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/FirstERD.png)
 
 15. Provide User stories for your App.
-
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/ContinuedTrello.png)
+ - More screenshots are within submitted documents
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/User_Stories.png)
 
 16. Provide Wireframes for your App.
-
-![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/Phone_wire_frame.png)
+ - More screenshots are within submitted documents
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/Phone_wire_frame.png)
+![alt text](https://github.com/shaktigurung/Market/blob/master/app/assets/images/Desktop_wire_frame.png)
 
 17. Describe the way tasks are allocated and tracked in your project.
  - Regular stand-ups were held each day where each member of the team explained what they wished to work on and what needs to be done from the others.

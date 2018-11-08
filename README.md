@@ -70,5 +70,9 @@ Designing the database was a difficult task for the team. The initial designed d
 ![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/SecondERD.png)
 ![alt text](https://github.com/shaktigurung/Market/blob/readme.md/app/assets/images/ThirdERD.png)
 
+## Questions:
+
+1. What is the need (i.e. challenge) that you will be addressing in your project?
+ - Our project challenged us to create a two-sided marketplace. This marketplace serves a platform to sell products to users. 
 
 

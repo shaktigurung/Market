@@ -121,29 +121,6 @@ form {
       }
 }
 /*====================================================
-||||||Preloader |||||
-====================================================*/
-#preloader {
-      background-color:$fifth_color;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-  }
-  #status {
-      background-image:url("preloader.gif");
-      background-repeat: no-repeat;
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin-top: -100px;
-      margin-left: -100px;
-  }
-/*====================================================
   |||||Category|||||
 ====================================================*/
 .category{

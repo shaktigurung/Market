@@ -10,6 +10,7 @@
     <% end %>
  </div>
  <div class="row">
+
     <% if @length > @limit %>
       <span class="inline">
         <%# Previous link if not on page 1 %>
@@ -23,8 +24,7 @@
           <% end %>
         <% end %>
       </span>
-</div>
-<div class="row">
+
         <%# Direct to page links %>
       <span class="inline"> 
         <% i = 0 %>
@@ -39,8 +39,7 @@
           <% end %>
         <% end %>
       </span>
-  </div>
-  <div class="row">
+  
         <%# Next search page if available %>
       <span class="inline">
         <% if params[:page].to_i < (@length / @limit)%>
@@ -53,6 +52,7 @@
           <% end %>
         <% end %>
     <% end %>
+
     </div>
     <div class="row">
     <%# If search field comes up empty%>

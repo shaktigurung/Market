@@ -6,21 +6,21 @@
 - *Daniel Teale*	-> [Github](https://github.com/DanielTeale)
 - *William Francis*	-> [Github](https://github.com/WilliamJohnFrancis)
 
-[Will Link to Heroku](https://www.google.com)
+[Heroku](https://www.google.com)
 
 [Github Repo](https://github.com/shaktigurung/Market)
 
 ## Introduction:
 
-The idea behind **APP NAME HERE** is for people to be able to buy and sell items between each other. 
+The idea behind **MARKET** is for people to be able to buy and sell items between each other. 
 
 We worked as a team during the intial stages of the project. We had meetings during the morning to talk about what we have done and what is to be completed. Blockers that came up were worked through with memeber of the team. If we were really stuck we would then go to Garret/James for addition help.
 
-### Teach Stack
+### Tech Stack
 
 - HTML 5
 - CSS
-- Rails
+- Ruby on Rails
 - Postgresql
 
 ### Features
@@ -28,12 +28,14 @@ We worked as a team during the intial stages of the project. We had meetings dur
 - Order Tracking 
 - Creating and Editing Products 
 - User Profiles 
-- Some Authentication 
+- Authentication 
 - Commenting on Products and Users 
 - Payment System 
 - Search 
 - Searchable Catagories 
 - Admin Account 
+- Private messaging
+- Uploadable images
 
 ## Development Process:
 

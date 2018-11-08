@@ -35,9 +35,9 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    # @product = current_user.products.build(product_params)
-    @product = Product.new(product_params)
-    @product.user_id = current_user.id
+    @product = current_user.products.build(product_params)
+    # @product = Product.new(user_id: current_user.id, product_params)
+    # @product.user_id = current_user.id
     respond_to do |format|
       if @product.save
         unless params[:product][:product_image].nil?

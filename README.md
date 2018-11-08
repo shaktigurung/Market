@@ -75,4 +75,31 @@ Designing the database was a difficult task for the team. The initial designed d
 1. What is the need (i.e. challenge) that you will be addressing in your project?
  - Our project challenged us to create a two-sided marketplace. This marketplace serves a platform to sell products to users. 
 
+2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
+ - We are building this Application to provide a simple platform to buy and sell goods without any complication. Some of the competitors in the market have a very complicated system which makes it difficult to perform any kind of transaction. 
+
+3. Describe the project will you be conducting and how. your App will address the needs.
+ - We are building “ Market App”. This App will provide a simpler way to have two-sided marketing between our buyer and seller. In this platform, anyone can be a buyer or a seller. They will be provided with a process to execute their business transaction without any hassle.
+ When a seller wants to sell his/her product, they will post their product on the market with all the details regarding the product. Once it’s posted it will be seen to remaining users as a product to be bought if that appeals to them. If some user wants to buy that product then they can directly contact the seller through private message and ask some more information if they need to know. Once they are convinced, they can buy just by paying through their cards. And once an order is received by the seller, the product will be sent to the designated buyer.
+
+4. Describe the network infrastructure the App may be based on.
+ - Network infrastructure is the hardware and software resources of the entire network that enable network connectivity, communication, operations and management of an enterprise network. It provides the communication path and services between users, processes, applications, services and external networks/the internet.
+ - Our App is based on the following network infrastructure
+  - Networking Hardware:  Routers, Wireless Routers 
+  - Networking Software: Network security applications, firewall, operating systems
+  - Networking Services: Wireless protocols, IP addressing
+
+5. Identify and describe the software to be used in your App.
+ - We are building our App using the following software:
+	1. Ruby on Rails for the backend application
+	2. HTML, CSS, and JavaScript for the frontend application
+	3. Postgresql for database
+	4. Bootstrap for CSS framework and SASS for pre-processor
+	5. Some of the important gems are DEVISE for authentication, ActiveAdmin for the admin panel, AWS for file upload and Stripe for the payment system.
+
+
+
+
+
+
 

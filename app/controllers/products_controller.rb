@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def create
     # @product = current_user.products.build(product_params)
     @product = Product.new(product_params)
-    @product.user.id = current_user.id
+    @product.user_id = current_user.id
     respond_to do |format|
       if @product.save
         unless params[:product][:product_image].nil?
